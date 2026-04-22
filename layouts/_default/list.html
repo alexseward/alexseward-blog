@@ -1,0 +1,22 @@
+{{ define "main" }}
+{{ $pages := .Pages.ByDate.Reverse }}
+<section class="list-shell">
+  <header class="list-header">
+    <p class="eyebrow">{{ if eq .Kind "term" }}Tag archive{{ else }}Archive{{ end }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ if eq .Kind "term" }}
+    <p>Posts filed under <strong>{{ .Title }}</strong>.</p>
+    {{ else if .Content }}
+    <div class="list-intro">{{ .Content }}</div>
+    {{ else }}
+    <p>Essays, notes, and observations from across the site.</p>
+    {{ end }}
+  </header>
+
+  <div class="story-grid story-grid--list">
+    {{ range $pages }}
+    {{ partial "post-card.html" (dict "page" .) }}
+    {{ end }}
+  </div>
+</section>
+{{ end }}

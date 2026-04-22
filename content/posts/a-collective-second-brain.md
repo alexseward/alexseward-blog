@@ -3,6 +3,8 @@ title: "A Collective Second Brain"
 date: 2024-11-01
 author: "Alex Seward"
 summary: "LLMs as the collective digital twin of human text — a shared second brain with a natural language interface."
+featured: true
+sectionLabel: "Technology"
 tags:
   - ai
   - data

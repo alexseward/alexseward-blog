@@ -3,6 +3,8 @@ title: "Go for the Culture"
 date: 2022-01-01
 author: "Alex Seward"
 summary: "Spectators vs contributors at live events — from Klopp's Anfield challenge to grime nights in the early 2010s."
+featured: true
+sectionLabel: "Sport"
 tags:
   - culture
 ---

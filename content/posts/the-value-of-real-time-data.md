@@ -3,6 +3,7 @@ title: "Real-Time Decision Making"
 date: 2018-03-01
 author: "Alex Seward"
 summary: "Sat-nav as metaphor for customer-speed business — why real-time data changes decision making fundamentally."
+sectionLabel: "Technology"
 tags:
   - data
   - digital-transformation

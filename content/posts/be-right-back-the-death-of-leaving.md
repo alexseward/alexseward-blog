@@ -3,6 +3,7 @@ title: "BRB"
 date: 2018-03-01
 author: "Alex Seward"
 summary: "How technology changed the language of communication — from 'be right back' on MSN to always-on smartphones."
+sectionLabel: "Culture"
 tags:
   - culture
   - technology

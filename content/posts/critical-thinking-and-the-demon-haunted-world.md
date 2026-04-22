@@ -3,6 +3,7 @@ title: "Critical Thinking and The Demon-Haunted World"
 date: 2020-05-01
 author: "Alex Seward"
 summary: "Carl Sagan, scientific scepticism, and why critical thinking is a lifelong skill — especially in the age of deepfakes and misinformation."
+sectionLabel: "Culture"
 tags:
   - critical-thinking
 ---

@@ -1,0 +1,18 @@
+{{ define "main" }}
+<section class="terms-shell">
+  <header class="list-header">
+    <p class="eyebrow">Browse by topic</p>
+    <h1>{{ .Title }}</h1>
+    <p>Loose groupings, not a rigid taxonomy.</p>
+  </header>
+
+  <div class="terms-grid">
+    {{ range .Data.Terms.Alphabetical }}
+    <a class="term-card" href="{{ .Page.RelPermalink }}">
+      <span class="term-card__name">{{ .Page.Title }}</span>
+      <span class="term-card__count">{{ .Count }} posts</span>
+    </a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

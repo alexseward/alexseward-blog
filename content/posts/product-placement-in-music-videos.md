@@ -3,6 +3,7 @@ title: "Universal Music Group: Changing the Past to Sell You the Future"
 date: 2014-10-01
 author: "Alex Seward"
 summary: "Universal Music Group embedding ads in existing music videos — the first advertising critique, and a prediction about VR advertising."
+sectionLabel: "Music"
 tags:
   - culture
   - advertising

@@ -3,6 +3,7 @@ title: "Reimagined: TicketWeb"
 date: 2018-06-01
 author: "Alex Seward"
 summary: "Digital ticketing to combat bots and touting — guaranteed authenticity, ownership transfer at face value, and smarter recommendations."
+sectionLabel: "Reimagined"
 tags:
   - digital-transformation
   - technology

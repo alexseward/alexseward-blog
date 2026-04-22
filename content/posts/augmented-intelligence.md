@@ -3,6 +3,7 @@ title: "Augmented Intelligence"
 date: 2019-02-01
 author: "Alex Seward"
 summary: "AI as complement not replacement. Human intelligence and artificial intelligence are fundamentally different — and should be seen as complimentary."
+sectionLabel: "Technology"
 tags:
   - ai
   - technology

@@ -3,6 +3,7 @@ title: "Cultural Change in Music Consumption"
 date: 2018-09-01
 author: "Alex Seward"
 summary: "Artist revenue, platform economics, and broken incentives — why technology alone won't fix the music industry without cultural change."
+sectionLabel: "Music"
 tags:
   - culture
   - digital-transformation

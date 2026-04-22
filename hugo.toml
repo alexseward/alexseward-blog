@@ -1,35 +1,29 @@
 baseURL = 'https://alexseward.com/'
 languageCode = 'en-gb'
-title = 'Alex Seward'
-theme = 'PaperMod'
+title = "93 'til Infinity"
 paginate = 10
+enableRobotsTXT = true
 
 [params]
-  env = 'production'
-  description = 'Writing by Alex Seward — AI strategy, digital transformation, culture, and consciousness.'
+  description = "93 'til Infinity is a personal site by Alex Seward about technology, music, culture, sport, and whatever else stays interesting long enough to matter."
   author = 'Alex Seward'
   defaultTheme = 'auto'
-  showShareButtons = false
-  showReadingTime = true
-  showPostNavLinks = true
-  showBreadCrumbs = false
-  showCodeCopyButtons = true
-  showToc = false
 
-  [params.homeInfoParams]
-    Title = 'Alex Seward'
-    Content = 'Technology Strategy  |  AI Transformation'
+  [params.assets]
+    favicon = '/favicon.ico'
 
-  [[params.socialIcons]]
-    name = 'linkedin'
-    url = 'https://linkedin.com/in/alexseward'
+  [params.home]
+    eyebrow = 'Personal essays and observations'
+    intro = "93 'til Infinity is my corner of the internet for writing about technology, music, culture, football, creativity, and the small ideas that keep hanging around."
+    note = "The name comes from the Souls of Mischief track. It feels more like the spirit of the site than a job title ever could."
 
-  [[params.socialIcons]]
-    name = 'github'
+  [[params.socialLinks]]
+    name = 'GitHub'
     url = 'https://github.com/alexseward'
 
-[params.assets]
-  favicon = '/favicon.ico'
+  [[params.socialLinks]]
+    name = 'LinkedIn'
+    url = 'https://linkedin.com/in/alexseward'
 
 [outputs]
   home = ['HTML', 'RSS']
@@ -38,17 +32,29 @@ paginate = 10
   [markup.highlight]
     style = 'dracula'
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [menu]
   [[menu.main]]
-    identifier = 'posts'
-    name = 'Posts'
-    url = '/posts/'
-    weight = 10
+    identifier = 'home'
+    name = 'Home'
+    url = '/'
+    weight = 5
+
   [[menu.main]]
     identifier = 'about'
     name = 'About'
     url = '/about/'
+    weight = 10
+
+  [[menu.main]]
+    identifier = 'posts'
+    name = 'Posts'
+    url = '/posts/'
     weight = 20
+
   [[menu.main]]
     identifier = 'tags'
     name = 'Tags'

@@ -3,6 +3,7 @@ title: "Rules, Models, Minds"
 date: 2026-04-22
 author: "Alex Seward"
 summary: "Every process step is a Rule, a Model, or a Mind. Map all three before you automate anything. A diagnostic tool for AI system design."
+sectionLabel: "Technology"
 tags:
   - ai
   - architecture

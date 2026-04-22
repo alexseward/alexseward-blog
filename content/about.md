@@ -1,6 +1,16 @@
 ---
 title: "About"
-layout: "single"
+description: "About Alex Seward, the person behind 93 'til Infinity."
 ---
 
-AI transformation strategist and coach with 10+ years at Microsoft spanning consulting, digital advisory, and industry strategy across public sector, retail, manufacturing, and education. Developed a distinctive methodology — design-led, industry-grounded, benefits-mapped — that consistently turns ambiguous opportunity into structured transformation programmes. Now applies that methodology to coaching the next generation of AI practitioners, helping individuals and organisations move from AI awareness to measurable business impact.
+93 'til Infinity is my corner of the internet for essays, observations, and the ideas I keep coming back to.
+
+The name comes from the Souls of Mischief track. It has always felt like a better frame for this site than my job title: less corporate, more curious, and more honest about the mix of things I care about.
+
+I write about technology, music, culture, football, creativity, and the weird places those things overlap. Some posts start with AI, systems, or digital change. Others start with a song, a football crowd, a book, a memory, or something small that lodges in my head longer than it should.
+
+Professionally, I have spent the last decade working across technology, strategy, and transformation. That experience definitely shows up here, but this site is not a resume in disguise. It is more personal than that.
+
+Outside of work, I am usually listening to music, watching football, overthinking culture, or following whatever thread of curiosity feels alive that week. If this site has any organising principle beyond that, it is probably taste, attention, and trying to stay human while technology keeps speeding everything up.
+
+You can find me on [GitHub](https://github.com/alexseward) and [LinkedIn](https://linkedin.com/in/alexseward).

@@ -1,0 +1,28 @@
+{{- $page := .page -}}
+{{- $compact := .compact | default false -}}
+<article class="story-card{{ if $compact }} story-card--compact{{ end }}">
+  {{ with $page.Params.sectionLabel }}
+  <p class="story-card__section">{{ . }}</p>
+  {{ end }}
+  <h3 class="story-card__title">
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+  </h3>
+  <p class="story-card__summary">
+    {{ with $page.Params.summary }}
+      {{ . }}
+    {{ else }}
+      {{ $page.Summary | plainify | truncate 180 }}
+    {{ end }}
+  </p>
+  <div class="story-card__meta">
+    <span>{{ $page.Date.Format "2 January 2006" }}</span>
+    <span>{{ $page.ReadingTime }} min read</span>
+  </div>
+  {{ with $page.Params.tags }}
+  <div class="story-card__tags">
+    {{ range first 3 . }}
+    <span>{{ . }}</span>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>

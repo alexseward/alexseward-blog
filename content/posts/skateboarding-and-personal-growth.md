@@ -3,6 +3,8 @@ title: "Skateboarding and Personal Growth"
 date: 2019-06-01
 author: "Alex Seward"
 summary: "Perseverance, self-motivation, and Tony Hawk at 51 — what skateboarding taught me about personal growth."
+featured: true
+sectionLabel: "Sport"
 tags:
   - culture
   - personal

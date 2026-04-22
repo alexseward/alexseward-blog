@@ -3,6 +3,7 @@ title: "Personal Brand and the Bing AI Experiment"
 date: 2023-03-01
 author: "Alex Seward"
 summary: "Can Bing AI write 'in the style of alexseward.com'? Spoiler: it wrote the post. A meta-experiment in personal brand and generative AI."
+sectionLabel: "Technology"
 tags:
   - ai
   - personal

@@ -3,6 +3,7 @@ title: "Reimagined: Mothercare"
 date: 2018-05-01
 author: "Alex Seward"
 summary: "Mothercare as a subscription service — proactive parenting advice, product delivery, and a second-hand marketplace community."
+sectionLabel: "Reimagined"
 tags:
   - retail
   - digital-transformation

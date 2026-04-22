@@ -3,6 +3,8 @@ title: "The Narrative Factory"
 date: 2025-11-21
 author: "Alex Seward"
 summary: "Platforms as narrative factories — how advertising stacks, attention economics, and AI-generated content plug into the way human consciousness already works."
+featured: true
+sectionLabel: "Culture"
 tags:
   - ai
   - culture

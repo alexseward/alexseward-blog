@@ -3,6 +3,7 @@ title: "Avicii: The Dark Side of Hard Work"
 date: 2018-04-01
 author: "Alex Seward"
 summary: "The cost of glorifying unsustainable work, prompted by Avicii's passing and the culture of 'hard work' we may need to change."
+sectionLabel: "Music"
 tags:
   - culture
   - personal

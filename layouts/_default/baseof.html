@@ -1,0 +1,92 @@
+{{- $description := site.Params.description -}}
+{{- with .Params.summary }}{{ $description = . }}{{ end -}}
+{{- with .Description }}{{ $description = . }}{{ end -}}
+{{- $pageTitle := site.Title -}}
+{{- if not .IsHome }}{{ $pageTitle = printf "%s | %s" .Title site.Title }}{{ end -}}
+{{- $css := resources.Get "css/extended/custom.css" | minify | fingerprint -}}
+<!doctype html>
+<html lang="{{ site.LanguageCode }}" data-theme="{{ site.Params.defaultTheme | default `auto` }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <title>{{ $pageTitle }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="author" content="{{ site.Params.author }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{ with site.Params.assets.favicon }}
+  <link rel="icon" href="{{ . }}">
+  {{ end }}
+  {{ with site.Home.OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="{{ .MediaType.Type }}" href="{{ .RelPermalink }}" title="{{ site.Title }}">
+  {{ end }}
+  <meta property="og:title" content="{{ $pageTitle }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $pageTitle }}">
+  <meta name="twitter:description" content="{{ $description }}">
+</head>
+<body class="{{ if .IsHome }}page-home{{ else if eq .Kind `section` }}page-list{{ else if eq .Kind `term` }}page-list{{ else if eq .Kind `taxonomy` }}page-terms{{ else }}page-single{{ end }}">
+  <div class="page-frame">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-brand" href="{{ site.Home.RelPermalink }}">
+          <span class="site-brand__title">{{ site.Title }}</span>
+          <span class="site-brand__byline">by {{ site.Params.author }}</span>
+        </a>
+        <div class="site-header__controls">
+          <nav class="site-nav" aria-label="Main navigation">
+            <ul>
+              {{ range site.Menus.main }}
+              <li>
+                <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }} class="is-active"{{ end }}>{{ .Name }}</a>
+              </li>
+              {{ end }}
+            </ul>
+          </nav>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">Theme</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-main">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer class="site-footer">
+      <p>93 'til Infinity is written by {{ site.Params.author }}.</p>
+      <p>Built with Hugo and pushed forward by curiosity rather than a content calendar.</p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const storageKey = "93-theme";
+      const savedTheme = localStorage.getItem(storageKey);
+      if (savedTheme === "light" || savedTheme === "dark") {
+        root.dataset.theme = savedTheme;
+      } else if (savedTheme === "auto") {
+        root.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      } else {
+        root.dataset.theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      const toggle = document.getElementById("theme-toggle");
+      if (!toggle) {
+        return;
+      }
+
+      toggle.addEventListener("click", function () {
+        const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = nextTheme;
+        localStorage.setItem(storageKey, nextTheme);
+      });
+    }());
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{{ define "main" }}
+{{ $posts := where site.RegularPages "Section" "posts" }}
+{{ $featuredPosts := first 4 ($posts.ByDate.Reverse) }}
+{{ $curatedFeatured := where $posts "Params.featured" true }}
+{{ if ge (len $curatedFeatured) 3 }}
+  {{ $featuredPosts = first 4 ($curatedFeatured.ByDate.Reverse) }}
+{{ end }}
+{{ $sections := slice
+  (dict "title" "Technology" "description" "AI, systems, data, and the ways tools reshape thought and decision-making.")
+  (dict "title" "Music" "description" "Music culture, platform economics, scenes, and why the crowd still matters.")
+  (dict "title" "Culture" "description" "Media, attention, behaviour, and the stories people live inside.")
+  (dict "title" "Sport" "description" "Football, skateboarding, perseverance, and what participation teaches you.")
+  (dict "title" "Reimagined" "description" "Old transformation notes on how services and experiences could work differently.")
+}}
+
+<div class="home-shell">
+  <section class="hero-panel">
+    <p class="eyebrow">{{ site.Params.home.eyebrow }}</p>
+    <div class="hero-panel__grid">
+      <div class="hero-panel__headline">
+        <h1>{{ site.Title }}</h1>
+        <p class="hero-panel__byline">Written by {{ site.Params.author }}</p>
+      </div>
+      <div class="hero-panel__copy">
+        <p>{{ site.Params.home.intro }}</p>
+        <p>{{ site.Params.home.note }}</p>
+        <div class="hero-panel__links">
+          {{ range site.Params.socialLinks }}
+          <a href="{{ .url }}" target="_blank" rel="noreferrer">{{ .name }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-block__header">
+      <div>
+        <p class="eyebrow">Start here</p>
+        <h2>Featured writing</h2>
+      </div>
+      <a class="section-block__link" href="{{ `/posts/` | relURL }}">Browse all posts</a>
+    </div>
+    <div class="story-grid">
+      {{ range $featuredPosts }}
+      {{ partial "post-card.html" (dict "page" .) }}
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-block__header">
+      <div>
+        <p class="eyebrow">A few recurring worlds</p>
+        <h2>Where the site tends to wander</h2>
+      </div>
+      <a class="section-block__link" href="{{ `/about/` | relURL }}">Read the about page</a>
+    </div>
+    <div class="cluster-grid">
+      {{ range $sections }}
+      {{ $label := .title }}
+      {{ $items := first 2 ((where $posts "Params.sectionLabel" $label).ByDate.Reverse) }}
+      {{ if gt (len $items) 0 }}
+      <section class="cluster-card">
+        <p class="cluster-card__eyebrow">{{ $label }}</p>
+        <p class="cluster-card__description">{{ .description }}</p>
+        <div class="cluster-card__list">
+          {{ range $items }}
+          <a class="cluster-card__item" href="{{ .RelPermalink }}">
+            <span>{{ .Title }}</span>
+            <small>{{ .Date.Format "2006" }}</small>
+          </a>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-block__header">
+      <div>
+        <p class="eyebrow">The latest</p>
+        <h2>Recent posts</h2>
+      </div>
+      <a class="section-block__link" href="{{ `/tags/` | relURL }}">Explore tags</a>
+    </div>
+    <div class="story-grid story-grid--recent">
+      {{ range first 6 ($posts.ByDate.Reverse) }}
+      {{ partial "post-card.html" (dict "page" . "compact" true) }}
+      {{ end }}
+    </div>
+  </section>
+</div>
+{{ end }}
