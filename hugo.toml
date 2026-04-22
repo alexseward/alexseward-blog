@@ -1,0 +1,56 @@
+baseURL = 'https://alexseward.com/'
+languageCode = 'en-gb'
+title = 'Alex Seward'
+theme = 'PaperMod'
+paginate = 10
+
+[params]
+  env = 'production'
+  description = 'Writing by Alex Seward — AI strategy, digital transformation, culture, and consciousness.'
+  author = 'Alex Seward'
+  defaultTheme = 'auto'
+  showShareButtons = false
+  showReadingTime = true
+  showPostNavLinks = true
+  showBreadCrumbs = false
+  showCodeCopyButtons = true
+  showToc = false
+
+  [params.homeInfoParams]
+    Title = 'Alex Seward'
+    Content = 'Technology Strategy  |  AI Transformation'
+
+  [[params.socialIcons]]
+    name = 'linkedin'
+    url = 'https://linkedin.com/in/alexseward'
+
+  [[params.socialIcons]]
+    name = 'github'
+    url = 'https://github.com/alexseward'
+
+[params.assets]
+  favicon = '/favicon.ico'
+
+[outputs]
+  home = ['HTML', 'RSS']
+
+[markup]
+  [markup.highlight]
+    style = 'dracula'
+
+[menu]
+  [[menu.main]]
+    identifier = 'posts'
+    name = 'Posts'
+    url = '/posts/'
+    weight = 10
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
+    weight = 20
+  [[menu.main]]
+    identifier = 'tags'
+    name = 'Tags'
+    url = '/tags/'
+    weight = 30
