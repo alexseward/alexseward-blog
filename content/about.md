@@ -5,8 +5,6 @@ description: "About Alex Seward, the person behind 93 'til Infinity."
 
 93 'til Infinity is my corner of the internet for essays, observations, and the ideas I keep coming back to.
 
-The name comes from the Souls of Mischief track. It has always felt like a better frame for this site than my job title: less corporate, more curious, and more honest about the mix of things I care about.
-
 I write about technology, music, culture, football, creativity, and the weird places those things overlap. Some posts start with AI, systems, or digital change. Others start with a song, a football crowd, a book, a memory, or something small that lodges in my head longer than it should.
 
 Professionally, I have spent the last decade working across technology, strategy, and transformation. That experience definitely shows up here, but this site is not a resume in disguise. It is more personal than that.
