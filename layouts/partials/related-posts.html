@@ -1,0 +1,24 @@
+{{- $current := . -}}
+{{- $tags := .Params.tags -}}
+{{- if $tags -}}
+  {{- $posts := where site.RegularPages "Section" "posts" -}}
+  {{- $related := slice -}}
+  {{- range $posts -}}
+    {{- if ne .Permalink $current.Permalink -}}
+      {{- $shared := intersect $tags (.Params.tags | default slice) -}}
+      {{- if gt (len $shared) 0 -}}
+        {{- $related = $related | append . -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $related) 0 -}}
+  <section class="related-posts">
+    <p class="eyebrow">Related reading</p>
+    <div class="story-grid story-grid--related">
+      {{- range first 3 ($related.ByDate.Reverse) }}
+      {{ partial "post-card.html" (dict "page" . "compact" true) }}
+      {{- end }}
+    </div>
+  </section>
+  {{- end -}}
+{{- end -}}

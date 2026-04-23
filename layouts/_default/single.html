@@ -32,5 +32,37 @@
     </div>
   </footer>
   {{ end }}
+
+  {{ if eq .Section "posts" }}
+  {{- $pages := (.CurrentSection.Pages.ByDate.Reverse) -}}
+  {{- $idx := -1 -}}
+  {{- range $i, $p := $pages -}}
+    {{- if eq $p.Permalink $.Permalink }}{{ $idx = $i }}{{ end -}}
+  {{- end -}}
+  {{- $prev := false -}}
+  {{- $next := false -}}
+  {{- if and (ge $idx 0) (gt $idx 0) }}{{ $prev = index $pages (sub $idx 1) }}{{ end -}}
+  {{- if and (ge $idx 0) (lt (add $idx 1) (len $pages)) }}{{ $next = index $pages (add $idx 1) }}{{ end -}}
+  {{ if or $prev $next }}
+  <nav class="post-nav" aria-label="Post navigation">
+    {{ with $prev }}
+    <a class="post-nav__link post-nav__link--prev" href="{{ .RelPermalink }}">
+      <span class="post-nav__label">Previous</span>
+      <span class="post-nav__title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with $next }}
+    <a class="post-nav__link post-nav__link--next" href="{{ .RelPermalink }}">
+      <span class="post-nav__label">Next</span>
+      <span class="post-nav__title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </nav>
+  {{ end }}
+  {{ end }}
 </article>
+
+{{ if eq .Section "posts" }}
+{{ partial "related-posts.html" . }}
+{{ end }}
 {{ end }}
