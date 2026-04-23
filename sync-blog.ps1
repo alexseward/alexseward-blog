@@ -66,6 +66,8 @@ function Parse-Frontmatter {
     $published = if ($fm -match 'published:\s*(\d{4}-\d{2}-\d{2})') { $Matches[1] } else { $null }
     $status    = if ($fm -match 'status:\s*(\S+)') { $Matches[1] } else { $null }
     $desc      = if ($fm -match 'description:\s*"([^"]+)"') { $Matches[1] } else { $null }
+    $section   = if ($fm -match 'sectionLabel:\s*(\S+.*)') { $Matches[1].Trim() } else { $null }
+    $featured  = if ($fm -match 'featured:\s*true') { $true } else { $false }
 
     # Extract tags (excluding 'blog')
     $tags = @()
@@ -83,6 +85,8 @@ function Parse-Frontmatter {
         Date        = $published
         Status      = $status
         Description = $desc
+        Section     = $section
+        Featured    = $featured
         Tags        = $tags
         Body        = $body
     }
@@ -111,6 +115,8 @@ function Build-HugoFrontmatter {
     if ($Parsed.Date) { $lines += "date: $($Parsed.Date)" }
     $lines += "author: `"Alex Seward`""
     if ($Parsed.Description) { $lines += "summary: `"$($Parsed.Description)`"" }
+    if ($Parsed.Featured) { $lines += "featured: true" }
+    if ($Parsed.Section) { $lines += "sectionLabel: `"$($Parsed.Section)`"" }
     if ($Parsed.Tags.Count -gt 0) {
         $lines += "tags:"
         foreach ($t in $Parsed.Tags) { $lines += "  - $t" }
