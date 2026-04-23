@@ -10,12 +10,11 @@ enableRobotsTXT = true
   defaultTheme = 'auto'
 
   [params.assets]
-    favicon = '/favicon.ico'
+    favicon = '/favicon.svg'
 
   [params.home]
     eyebrow = 'Personal essays and observations'
     intro = "93 'til Infinity is my corner of the internet for writing about technology, music, culture, football, creativity, and the small ideas that keep hanging around."
-    note = "The name comes from the Souls of Mischief track. It feels more like the spirit of the site than a job title ever could."
 
   [[params.socialLinks]]
     name = 'GitHub'

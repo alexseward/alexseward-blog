@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="article-shell text-center">
+  <header class="article-header">
+    <p class="eyebrow">404</p>
+    <h1>Page not found</h1>
+  </header>
+  <div class="article-content">
+    <p>Whatever was here has wandered off. Try heading <a href="{{ site.Home.RelPermalink }}">back home</a> or <a href="{{ `/posts/` | relURL }}">browsing all posts</a>.</p>
+  </div>
+</section>
+{{ end }}

@@ -23,7 +23,7 @@
       </div>
       <div class="hero-panel__copy">
         <p>{{ site.Params.home.intro }}</p>
-        <p>{{ site.Params.home.note }}</p>
+        {{ with site.Params.home.note }}<p>{{ . }}</p>{{ end }}
         <div class="hero-panel__links">
           {{ range site.Params.socialLinks }}
           <a href="{{ .url }}" target="_blank" rel="noreferrer">{{ .name }}</a>

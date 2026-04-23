@@ -21,7 +21,7 @@
   {{ with $page.Params.tags }}
   <div class="story-card__tags">
     {{ range first 3 . }}
-    <span>{{ . }}</span>
+    <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}"><span>{{ . }}</span></a>
     {{ end }}
   </div>
   {{ end }}
