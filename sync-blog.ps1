@@ -10,22 +10,27 @@
       - Removes vault-only footers (See also, Vault Connections)
       - Generates URL-friendly slugs from filenames
     
-    Existing Hugo posts are overwritten. Posts removed from the vault source
-    are deleted from Hugo. Drafts/ is always ignored.
+    Existing Hugo posts with matching slugs are overwritten. Posts removed from
+    the vault source are only deleted from Hugo when -Prune is provided.
+    Drafts/ is always ignored.
 
 .EXAMPLE
     .\sync-blog.ps1
     .\sync-blog.ps1 -WhatIf
     .\sync-blog.ps1 -Verbose
+    .\sync-blog.ps1 -VaultPath "C:\path\to\vault\Blog" -Prune
 #>
 
 [CmdletBinding(SupportsShouldProcess)]
-param()
+param(
+    [string]$VaultPath = "C:\Users\alexse\iCloudDrive\iCloud~md~obsidian\Alex\Blog",
+    [switch]$Prune
+)
 
 $ErrorActionPreference = 'Stop'
 
 # --- Configuration ---
-$VaultBlogDir = "C:\Users\alexse\iCloudDrive\iCloud~md~obsidian\Alex\Blog"
+$VaultBlogDir = $VaultPath
 $HugoPostsDir = Join-Path $PSScriptRoot "content\posts"
 # Vault source can also be overridden: .\sync-blog.ps1 -VaultPath "C:\path\to\vault\Blog"
 
@@ -51,6 +56,46 @@ function Convert-ObsidianToHugo {
     return $Content
 }
 
+function Get-FrontmatterValue {
+    param([string]$Frontmatter, [string]$Key)
+
+    $pattern = "(?m)^$([regex]::Escape($Key)):\s*(.+?)\s*$"
+    if ($Frontmatter -notmatch $pattern) {
+        return $null
+    }
+
+    $value = $Matches[1].Trim()
+    if (($value.StartsWith('"') -and $value.EndsWith('"')) -or
+        ($value.StartsWith("'") -and $value.EndsWith("'"))) {
+        $value = $value.Substring(1, $value.Length - 2)
+    }
+    return $value
+}
+
+function Get-FrontmatterTags {
+    param([string]$Frontmatter)
+
+    $tags = @()
+    $inline = Get-FrontmatterValue $Frontmatter "tags"
+
+    if ($inline -and $inline.StartsWith("[") -and $inline.EndsWith("]")) {
+        $inline.Trim("[]") -split "," | ForEach-Object {
+            $tag = $_.Trim().Trim('"').Trim("'")
+            if ($tag -and $tag -ne 'blog') { $tags += $tag }
+        }
+    }
+    elseif ($Frontmatter -match '(?ms)^tags:\s*\r?\n((?:\s+-\s+.+\r?\n?)+)') {
+        $Matches[1] -split "\r?\n" | ForEach-Object {
+            if ($_ -match '^\s+-\s+(.+?)\s*$') {
+                $tag = $Matches[1].Trim().Trim('"').Trim("'")
+                if ($tag -and $tag -ne 'blog') { $tags += $tag }
+            }
+        }
+    }
+
+    return $tags
+}
+
 function Parse-Frontmatter {
     param([string]$Raw)
 
@@ -61,24 +106,13 @@ function Parse-Frontmatter {
     $fm = $Matches[1]
     $body = $Matches[2]
 
-    # Extract fields
-    $title     = if ($fm -match 'title:\s*"([^"]+)"') { $Matches[1] } else { $null }
-    $published = if ($fm -match 'published:\s*(\d{4}-\d{2}-\d{2})') { $Matches[1] } else { $null }
-    $status    = if ($fm -match 'status:\s*(\S+)') { $Matches[1] } else { $null }
-    $desc      = if ($fm -match 'description:\s*"([^"]+)"') { $Matches[1] } else { $null }
-    $section   = if ($fm -match 'sectionLabel:\s*(\S+.*)') { $Matches[1].Trim() } else { $null }
-    $featured  = if ($fm -match 'featured:\s*true') { $true } else { $false }
-
-    # Extract tags (excluding 'blog')
-    $tags = @()
-    if ($fm -match '(?s)tags:\s*\n((?:\s+-\s+.+\n?)+)') {
-        $Matches[1] -split "`n" | ForEach-Object {
-            if ($_ -match '^\s+-\s+(.+)$') {
-                $tag = $Matches[1].Trim()
-                if ($tag -ne 'blog') { $tags += $tag }
-            }
-        }
-    }
+    $title = Get-FrontmatterValue $fm "title"
+    $published = Get-FrontmatterValue $fm "published"
+    $status = Get-FrontmatterValue $fm "status"
+    $desc = Get-FrontmatterValue $fm "description"
+    $section = Get-FrontmatterValue $fm "sectionLabel"
+    $featured = (Get-FrontmatterValue $fm "featured") -eq "true"
+    $tags = Get-FrontmatterTags $fm
 
     return @{
         Title       = $title
@@ -180,18 +214,21 @@ foreach ($file in $sourceFiles) {
     $synced += [PSCustomObject]@{ Slug = $slug; Title = $parsed.Title; Date = $parsed.Date }
 }
 
-# Clean up Hugo posts that no longer have a vault source
-$validSlugs = $sourceFiles | ForEach-Object { ConvertTo-Slug $_.BaseName }
-$existing = Get-ChildItem -Path $HugoPostsDir -Filter "*.md" -File
 $removed = @()
 
-foreach ($f in $existing) {
-    $slug = $f.BaseName
-    if ($slug -notin $validSlugs) {
-        if ($PSCmdlet.ShouldProcess($f.FullName, "Remove orphaned post")) {
-            Remove-Item $f.FullName
+if ($Prune) {
+    # Clean up Hugo posts that no longer have a synced published source.
+    $validSlugs = $synced | ForEach-Object { $_.Slug }
+    $existing = Get-ChildItem -Path $HugoPostsDir -Filter "*.md" -File
+
+    foreach ($f in $existing) {
+        $slug = $f.BaseName
+        if ($slug -notin $validSlugs) {
+            if ($PSCmdlet.ShouldProcess($f.FullName, "Remove orphaned post")) {
+                Remove-Item $f.FullName
+            }
+            $removed += $slug
         }
-        $removed += $slug
     }
 }
 
@@ -206,9 +243,12 @@ if ($skipped.Count -gt 0) {
     $skipped | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkYellow }
 }
 
-if ($removed.Count -gt 0) {
+if ($Prune -and $removed.Count -gt 0) {
     Write-Host "`nRemoved: $($removed.Count) orphaned posts" -ForegroundColor Red
     $removed | ForEach-Object { Write-Host "  $_" -ForegroundColor DarkRed }
+}
+elseif (-not $Prune) {
+    Write-Host "`nPrune disabled: no existing Hugo posts were deleted. Run with -Prune to remove orphaned posts." -ForegroundColor DarkGray
 }
 
 Write-Host ""

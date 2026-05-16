@@ -1,7 +1,7 @@
 baseURL = 'https://alexseward.com/'
-languageCode = 'en-gb'
+locale = 'en-gb'
 title = "93 'til Infinity"
-paginate = 10
+pagination.pagerSize = 10
 enableRobotsTXT = true
 
 [params]

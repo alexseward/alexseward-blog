@@ -7,20 +7,18 @@
   <h3 class="story-card__title">
     <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
   </h3>
-  <p class="story-card__summary">
-    {{ with $page.Params.summary }}
-      {{ . }}
-    {{ else }}
-      {{ $page.Summary | plainify | truncate 180 }}
-    {{ end }}
-  </p>
+  {{ with $page.Params.summary }}
+  <p class="story-card__summary">{{ . }}</p>
+  {{ else }}
+  <p class="story-card__summary">{{ $page.Summary | plainify | truncate 180 }}</p>
+  {{ end }}
   <div class="story-card__meta">
-    <span>{{ $page.Date.Format "2 January 2006" }}</span>
+    {{ if not $page.Date.IsZero }}<span>{{ $page.Date.Format "2 January 2006" }}</span>{{ end }}
     <span>{{ $page.ReadingTime }} min read</span>
   </div>
   {{ with $page.Params.tags }}
   <div class="story-card__tags">
-    {{ range first 3 . }}
+    {{ range first 4 . }}
     <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}"><span>{{ . }}</span></a>
     {{ end }}
   </div>
