@@ -9,7 +9,7 @@
       - Converts wikilinks to plain text
       - Removes vault-only footers (See also, Vault Connections)
       - Generates URL-friendly slugs from filenames
-    
+
     Existing Hugo posts with matching slugs are overwritten. Posts removed from
     the vault source are only deleted from Hugo when -Prune is provided.
     Drafts/ is always ignored.
@@ -23,16 +23,20 @@
 
 [CmdletBinding(SupportsShouldProcess)]
 param(
-    [string]$VaultPath = "C:\Users\alexse\iCloudDrive\iCloud~md~obsidian\Alex\Blog",
+    [string]$VaultPath = $env:BLOG_VAULT_PATH,
     [switch]$Prune
 )
 
 $ErrorActionPreference = 'Stop'
 
 # --- Configuration ---
+if (-not $VaultPath) {
+    throw "Set BLOG_VAULT_PATH or pass -VaultPath with the path to your Obsidian Blog folder."
+}
+
 $VaultBlogDir = $VaultPath
 $HugoPostsDir = Join-Path $PSScriptRoot "content\posts"
-# Vault source can also be overridden: .\sync-blog.ps1 -VaultPath "C:\path\to\vault\Blog"
+# Vault source can be set with BLOG_VAULT_PATH or overridden with -VaultPath.
 
 # --- Helpers ---
 function ConvertTo-Slug {
@@ -141,16 +145,29 @@ function Clean-Body {
     return $Body.Trim()
 }
 
+function ConvertTo-YamlString {
+    param([string]$Value)
+
+    $quote = [char]39
+    if ($null -eq $Value) {
+        return "$quote$quote"
+    }
+
+    $escaped = $Value -replace $quote, "$quote$quote"
+    $escaped = $escaped -replace "`r`n|`n|`r", " "
+    return "$quote$escaped$quote"
+}
+
 function Build-HugoFrontmatter {
     param($Parsed)
 
     $lines = @("---")
-    $lines += "title: `"$($Parsed.Title)`""
+    $lines += "title: $(ConvertTo-YamlString $Parsed.Title)"
     if ($Parsed.Date) { $lines += "date: $($Parsed.Date)" }
-    $lines += "author: `"Alex Seward`""
-    if ($Parsed.Description) { $lines += "summary: `"$($Parsed.Description)`"" }
+    $lines += "author: $(ConvertTo-YamlString 'Alex Seward')"
+    if ($Parsed.Description) { $lines += "summary: $(ConvertTo-YamlString $Parsed.Description)" }
     if ($Parsed.Featured) { $lines += "featured: true" }
-    if ($Parsed.Section) { $lines += "sectionLabel: `"$($Parsed.Section)`"" }
+    if ($Parsed.Section) { $lines += "sectionLabel: $(ConvertTo-YamlString $Parsed.Section)" }
     if ($Parsed.Tags.Count -gt 0) {
         $lines += "tags:"
         foreach ($t in $Parsed.Tags) { $lines += "  - $t" }
