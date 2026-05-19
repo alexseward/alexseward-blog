@@ -7,6 +7,7 @@ sectionLabel: "Music"
 tags:
   - culture
   - advertising
+  - music
 ---
 
 I think the general population vastly underestimate the power of advertising. How many people find themselves using social networks and search engines everyday, but have never thought to question why they are getting this stuff for free? That's right kids, every click you make is mined and sold on for profit.

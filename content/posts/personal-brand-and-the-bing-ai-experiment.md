@@ -7,6 +7,7 @@ sectionLabel: "Technology"
 tags:
   - ai
   - personal
+  - technology
 ---
 
 If you're looking for a way to stand out from the crowd and showcase your skills, passions and personality, building a personal brand online is a great option. A personal brand is essentially how you present yourself to the world through your online presence. It's what people think of when they hear your name or see your content.

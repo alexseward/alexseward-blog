@@ -7,6 +7,7 @@ sectionLabel: 'Technology'
 tags:
   - ai
   - architecture
+  - technology
 ---
 
 Every step in any process requires one of three types of intelligence.

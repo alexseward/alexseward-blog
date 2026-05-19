@@ -7,6 +7,7 @@ sectionLabel: "Technology"
 tags:
   - data
   - digital-transformation
+  - technology
 ---
 
 I was engaged in a recent conversation about the true value of real-time data in enabling business decision making and enhancing the customer experience. To understand this, you must first look at yourself in your day to day life.

@@ -122,6 +122,22 @@ function Get-SectionLabelFromTags {
     return $null
 }
 
+function Add-SectionTag {
+    param([string[]]$Tags, [string]$Section)
+
+    if ($Section -notin @('Technology', 'Music', 'Culture', 'Sport')) {
+        return $Tags
+    }
+
+    $sectionTag = $Section.ToLowerInvariant()
+    $existing = @($Tags | ForEach-Object { $_.ToLowerInvariant() })
+    if ($sectionTag -in $existing) {
+        return $Tags
+    }
+
+    return @($Tags + $sectionTag)
+}
+
 function Parse-Frontmatter {
     param([string]$Raw)
 
@@ -142,6 +158,7 @@ function Parse-Frontmatter {
     if (-not $section) {
         $section = Get-SectionLabelFromTags $tags
     }
+    $tags = Add-SectionTag -Tags $tags -Section $section
 
     return @{
         Title       = $title

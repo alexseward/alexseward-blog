@@ -6,6 +6,7 @@ summary: "The cost of glorifying unsustainable work, prompted by Avicii's passin
 sectionLabel: "Music"
 tags:
   - culture
+  - music
   - personal
 ---
 

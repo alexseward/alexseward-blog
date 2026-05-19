@@ -7,6 +7,7 @@ sectionLabel: "Music"
 tags:
   - culture
   - digital-transformation
+  - music
 ---
 
 I recently saw a post about Audius (https://techcrunch.com/2018/08/08/audius/) and it got me thinking. I like the idea but I think this video explains the current landscape of the music industry well: https://www.youtube.com/watch?v=OQT6UfvyGP8.

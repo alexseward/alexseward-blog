@@ -5,6 +5,7 @@ author: "Alex Seward"
 summary: "Carl Sagan, scientific scepticism, and why critical thinking is a lifelong skill — especially in the age of deepfakes and misinformation."
 sectionLabel: "Culture"
 tags:
+  - culture
   - critical-thinking
 ---
 

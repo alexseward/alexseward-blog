@@ -5,6 +5,7 @@ author: "Alex Seward"
 summary: "Field recordings of the threshold between student life and working life — a sound project capturing one last long summer."
 sectionLabel: "Culture"
 tags:
+  - culture
   - personal
 ---
 
