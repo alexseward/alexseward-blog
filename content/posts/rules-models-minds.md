@@ -9,15 +9,6 @@ tags:
   - architecture
 ---
 
-Most "AI Agent" projects fail.
-
-They don't fail because the technology is bad. They fail because the design is lazy.
-
-The core mistake is confusing _"AI can do something"_ with _"AI should do everything."_ Teams try to wrap an entire business process in a single LLM call and hope for the best.
-
-This isn't a strategy. It's a category error. And it’s costing a fortune.
-
-To fix it, you have to stop thinking about "agents" and start thinking about the work itself. Every step in any process requires one of three types of intelligence.
 
 ## The Three Zones of Work
 
