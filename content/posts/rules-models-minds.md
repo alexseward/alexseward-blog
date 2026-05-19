@@ -1,16 +1,15 @@
 ---
-title: "Rules, Models, Minds"
+title: 'Rules, Models, Minds'
 date: 2026-04-22
-author: "Alex Seward"
-summary: "Every process step is a Rule, a Model, or a Mind. Map all three before you automate anything. A diagnostic tool for AI system design."
-sectionLabel: "Technology"
+author: 'Alex Seward'
+summary: 'Every process step is a Rule, a Model, or a Mind. Map all three before you automate anything. A diagnostic tool for AI system design.'
+sectionLabel: 'Technology'
 tags:
   - ai
   - architecture
 ---
 
-
-## The Three Zones of Work
+Every step in any process requires one of three types of intelligence.
 
 ### 1. Rules (Deterministic)
 
@@ -30,29 +29,22 @@ tags:
 - **The Trap:** Automating a decision you can't explain to your boss, your customer, or a regulator.
 - **The Rule:** A model can _support_ a high-stakes decision. It cannot _own_ it. Someone has to be responsible.
 
-## The System Breaks at the Seams
-
-Your agent won't fail in the middle of a zone. It will fail at the handoff between them.
-
-This is where 90% of projects die.
-
-- A **Model** hallucinates a JSON key. The **Rule**-based parser downstream chokes. The whole workflow dies silently at 2 AM.
 ## Your Sanity Check
 
 Next time you're in a meeting about an AI agent, ask these questions. If the team doesn't have good answers, you have a problem.
 
-1. **"Which steps here are just Rules?"**
+1. **"Which steps here are just Rules?"**  
     Force the team to find the simple logic first. This will slash your budget and increase stability.
-
-2. **"What happens when the Model is only 40% confident?"**
+    
+2. **"What happens when the Model is only 40% confident?"**  
     If there's no fallback path to a Rule or an escalation to a Mind, the design is too fragile.
-
-3. **"How do we validate the Model's output before the next step runs?"**
+    
+3. **"How do we validate the Model's output before the next step runs?"**  
     If the answer is "we trust it," they are building on sand. You need a validation layer—another Rule—to protect the rest of the system.
-
-4. **"Who owns the outcome when this makes a mistake?"**
+    
+4. **"Who owns the outcome when this makes a mistake?"**  
     This question uncovers which steps truly belong in the "Minds" zone. If no one can answer, you are automating accountability away. That never ends well.
-
+    
 
 ## The Goal Isn't Full Automation
 

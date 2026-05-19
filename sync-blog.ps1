@@ -101,6 +101,27 @@ function Get-FrontmatterTags {
     return $tags
 }
 
+function Get-SectionLabelFromTags {
+    param([string[]]$Tags)
+
+    $tagSet = @{}
+    foreach ($tag in $Tags) {
+        $tagSet[$tag.ToLowerInvariant()] = $true
+    }
+
+    if ($tagSet.ContainsKey('music')) { return 'Music' }
+    if ($tagSet.ContainsKey('sport')) { return 'Sport' }
+    if ($tagSet.ContainsKey('culture')) { return 'Culture' }
+    if ($tagSet.ContainsKey('retail')) { return 'Reimagined' }
+
+    $technologyTags = @('ai', 'architecture', 'data', 'digital-transformation', 'responsible-ai', 'technology')
+    foreach ($tag in $technologyTags) {
+        if ($tagSet.ContainsKey($tag)) { return 'Technology' }
+    }
+
+    return $null
+}
+
 function Parse-Frontmatter {
     param([string]$Raw)
 
@@ -118,6 +139,9 @@ function Parse-Frontmatter {
     $section = Get-FrontmatterValue $fm "sectionLabel"
     $featured = (Get-FrontmatterValue $fm "featured") -eq "true"
     $tags = Get-FrontmatterTags $fm
+    if (-not $section) {
+        $section = Get-SectionLabelFromTags $tags
+    }
 
     return @{
         Title       = $title

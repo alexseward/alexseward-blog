@@ -3,6 +3,7 @@ title: 'Building your Second Brain'
 date: 2026-05-18
 author: 'Alex Seward'
 summary: 'What happens when you stop writing about personal knowledge management and actually build the thing — with an LLM as the maintenance layer.'
+sectionLabel: 'Technology'
 tags:
   - ai
   - data
