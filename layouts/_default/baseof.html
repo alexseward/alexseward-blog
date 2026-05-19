@@ -40,7 +40,6 @@
       <div class="site-header__inner">
         <a class="site-brand" href="{{ site.Home.RelPermalink }}">
           <span class="site-brand__title">{{ site.Title }}</span>
-          <span class="site-brand__byline">by {{ site.Params.author }}</span>
         </a>
         <div class="site-header__controls">
           <nav class="site-nav" aria-label="Main navigation">
@@ -69,7 +68,14 @@
 
     <footer class="site-footer">
       <p>93 'til Infinity is written by {{ site.Params.author }}.</p>
-      <p>Built with Hugo and pushed forward by curiosity rather than a content calendar.</p>
+      <nav class="footer-links" aria-label="Elsewhere">
+        {{ range site.Params.socialLinks }}
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} -></a>
+        {{ end }}
+        {{ with site.Home.OutputFormats.Get "RSS" }}
+        <a href="{{ .RelPermalink }}">RSS -></a>
+        {{ end }}
+      </nav>
     </footer>
   </div>
 

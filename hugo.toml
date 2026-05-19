@@ -14,7 +14,8 @@ enableRobotsTXT = true
 
   [params.home]
     eyebrow = 'Personal essays and observations'
-    intro = "93 'til Infinity is my corner of the internet for writing about technology, music, culture, football, creativity, and the small ideas that keep hanging around."
+    headline = 'Essays & observations on technology, culture, music, sport and the internet.'
+    intro = 'Written by Alex Seward in Bristol.'
 
   [[params.socialLinks]]
     name = 'GitHub'
@@ -37,25 +38,19 @@ enableRobotsTXT = true
 
 [menu]
   [[menu.main]]
-    identifier = 'home'
-    name = 'Home'
-    url = '/'
-    weight = 5
-
-  [[menu.main]]
-    identifier = 'about'
-    name = 'About'
-    url = '/about/'
-    weight = 10
-
-  [[menu.main]]
     identifier = 'posts'
     name = 'Posts'
     url = '/posts/'
-    weight = 20
+    weight = 10
 
   [[menu.main]]
     identifier = 'tags'
     name = 'Tags'
     url = '/tags/'
+    weight = 20
+
+  [[menu.main]]
+    identifier = 'about'
+    name = 'About'
+    url = '/about/'
     weight = 30
