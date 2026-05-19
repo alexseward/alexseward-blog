@@ -7,6 +7,7 @@ featured: true
 sectionLabel: "Sport"
 tags:
   - culture
+  - sport
 ---
 
 I have been thinking about this for a while, but after Jurgen Klopp made comments post-game about the Anfield crowd, I was inspired to write this down. *"I was not overly happy with the atmosphere behind me. I wondered what they wanted. We need Anfield on Saturday. We need Anfield on their toes without me being in an argument with their coach or whatever. If you're not in the right shape, give your ticket to someone else."*
