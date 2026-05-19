@@ -37,11 +37,6 @@ Your agent won't fail in the middle of a zone. It will fail at the handoff betwe
 This is where 90% of projects die.
 
 - A **Model** hallucinates a JSON key. The **Rule**-based parser downstream chokes. The whole workflow dies silently at 2 AM.
-- A **Rule** strips context from data before passing it to a **Model**. The AI gets a technically valid but useless input. It confidently gives you a wrong answer.
-- A **Model** makes a recommendation to a **Mind** without showing its work. The human either blindly trusts it (dangerous) or ignores it (useless).
-
-If you haven't obsessively designed the interfaces between Rules, Models, and Minds, you haven't designed a system. You've just glued some APIs together.
-
 ## Your Sanity Check
 
 Next time you're in a meeting about an AI agent, ask these questions. If the team doesn't have good answers, you have a problem.

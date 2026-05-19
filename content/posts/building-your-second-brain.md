@@ -6,6 +6,7 @@ summary: 'What happens when you stop writing about personal knowledge management
 tags:
   - ai
   - data
+  - technology
 ---
 
 In November 2024, I wrote about the idea of a collective second brain — how LLMs were turning our accumulated text into "a living, responsive knowledge pool." I was thinking big: a shared digital twin of human knowledge, a collective memory with a natural language interface.
