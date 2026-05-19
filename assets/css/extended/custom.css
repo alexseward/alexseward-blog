@@ -334,9 +334,15 @@ img {
     border: 1px solid var(--line);
     border-radius: calc(var(--radius-lg) - 6px);
     background:
-        radial-gradient(circle at 72% 24%, color-mix(in srgb, var(--panel-strong) 82%, transparent), transparent 28%),
-        linear-gradient(155deg, color-mix(in srgb, var(--muted) 18%, transparent), transparent 48%),
-        color-mix(in srgb, var(--muted) 14%, transparent);
+        linear-gradient(180deg, rgba(255, 250, 244, 0.08), rgba(32, 23, 17, 0.22)),
+        url("/images/infinity.png");
+    background-position: center;
+    background-size: cover;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 250, 244, 0.18),
+        inset 0 -48px 88px rgba(32, 23, 17, 0.18);
+    filter: saturate(0.72) sepia(0.08);
+    overflow: hidden;
 }
 
 .hero-panel__byline {
