@@ -1,0 +1,105 @@
+{
+  "generatedAt": "2026-05-19T13:40:19.4157324+01:00",
+  "generatedLabel": "19 May 2026",
+  "source": "Public-safe vault summary",
+  "hero": {
+    "eyebrow": "Thinking now",
+    "title": "A living map of what I'm thinking about.",
+    "intro": "Generated from a public-safe summary of my personal knowledge base: the things that have been recurring, connecting, or gathering momentum lately."
+  },
+  "stats": {
+    "notesSampled": 24,
+    "topics": 4,
+    "readings": 2,
+    "writing": 1
+  },
+  "strongestCluster": {
+    "eyebrow": "Strongest cluster",
+    "title": "AI adoption meeting organisational capability.",
+    "summary": "The organisational gap between AI experiments and repeatable value."
+  },
+  "nodes": [
+    {
+      "Label": "Current attention",
+      "Type": "core",
+      "Class": "constellation-node--core"
+    },
+    {
+      "Label": "Adoption layer",
+      "Type": "topic",
+      "Class": "node-agentic"
+    },
+    {
+      "Label": "Responsible AI",
+      "Type": "topic",
+      "Class": "node-second-brain"
+    },
+    {
+      "Label": "Data architecture",
+      "Type": "topic",
+      "Class": "node-adoption"
+    },
+    {
+      "Label": "Second brain",
+      "Type": "topic",
+      "Class": "node-governance"
+    },
+    {
+      "Label": "The Capability Ceiling",
+      "Type": "note",
+      "Class": "node-capability"
+    },
+    {
+      "Label": "Agentic AI",
+      "Type": "note",
+      "Class": "node-production"
+    },
+    {
+      "Label": "Map of Content",
+      "Type": "note",
+      "Class": "node-literacy"
+    },
+    {
+      "Label": "Prompt Engineering",
+      "Type": "note",
+      "Class": "node-rag"
+    }
+  ],
+  "activeThreads": [
+    {
+      "Title": "Introducing the AI Adoption Layer",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
+    },
+    {
+      "Title": "Building your Second Brain",
+      "Kind": "Writing",
+      "Meta": "Writing signal"
+    },
+    {
+      "Title": "The Capability Ceiling",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
+      "Title": "Agentic AI",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    }
+  ],
+  "bridges": [
+    {
+      "From": "AI adoption",
+      "To": "organisational capability"
+    },
+    {
+      "From": "Second brain",
+      "To": "personal tooling"
+    },
+    {
+      "From": "Governance",
+      "To": "responsible practice"
+    }
+  ],
+  "updateNote": "This page is periodically refreshed from a public-safe summary of my personal knowledge base."
+}

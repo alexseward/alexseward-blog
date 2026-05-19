@@ -1,0 +1,63 @@
+{{ define "main" }}
+{{ $thinking := hugo.Data.thinking }}
+
+<section class="thinking-shell">
+  <header class="thinking-hero">
+    <div>
+      <p class="eyebrow">{{ $thinking.hero.eyebrow }}</p>
+      <h1>{{ $thinking.hero.title }}</h1>
+      <p>{{ $thinking.hero.intro }}</p>
+    </div>
+    <div class="thinking-update">
+      <span>Last refreshed</span>
+      <strong>{{ $thinking.generatedLabel }}</strong>
+      <small>{{ $thinking.source }}</small>
+    </div>
+  </header>
+
+  <section class="constellation-panel" aria-label="Knowledge constellation">
+    <div class="constellation-map">
+      <div class="constellation-ring constellation-ring--outer"></div>
+      <div class="constellation-ring constellation-ring--inner"></div>
+      {{ range $thinking.nodes }}
+      <div class="constellation-node constellation-node--{{ .Type }} {{ .Class }}">{{ .Label }}</div>
+      {{ end }}
+    </div>
+    <aside class="constellation-aside">
+      <p class="eyebrow">{{ $thinking.strongestCluster.eyebrow }}</p>
+      <h2>{{ $thinking.strongestCluster.title }}</h2>
+      <p>{{ $thinking.strongestCluster.summary }}</p>
+    </aside>
+  </section>
+
+  <section class="thinking-grid">
+    <div class="thinking-card thinking-card--wide">
+      <p class="eyebrow">Active threads</p>
+      <div class="thinking-list">
+        {{ range $thinking.activeThreads }}
+        <article>
+          <span>{{ .Kind }}</span>
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Meta }}</p>
+        </article>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="thinking-card">
+      <p class="eyebrow">Emerging connections</p>
+      <div class="bridge-list">
+        {{ range $thinking.bridges }}
+        <p><strong>{{ .From }}</strong> <span>-></span> {{ .To }}</p>
+        {{ end }}
+      </div>
+    </div>
+
+    <div class="thinking-card">
+      <p class="eyebrow">About this page</p>
+      <p>{{ $thinking.updateNote }}</p>
+      <a class="text-link" href="{{ `/posts/` | relURL }}">Read recent essays -></a>
+    </div>
+  </section>
+</section>
+{{ end }}

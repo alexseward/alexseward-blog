@@ -24,7 +24,8 @@
 [CmdletBinding(SupportsShouldProcess)]
 param(
     [string]$VaultPath = $env:BLOG_VAULT_PATH,
-    [switch]$Prune
+    [switch]$Prune,
+    [switch]$SkipThinkingRefresh
 )
 
 $ErrorActionPreference = 'Stop'
@@ -266,6 +267,15 @@ if ($Prune -and $removed.Count -gt 0) {
 }
 elseif (-not $Prune) {
     Write-Host "`nPrune disabled: no existing Hugo posts were deleted. Run with -Prune to remove orphaned posts." -ForegroundColor DarkGray
+}
+
+if (-not $SkipThinkingRefresh) {
+    $thinkingScript = Join-Path $PSScriptRoot "sync-thinking.ps1"
+    if (Test-Path $thinkingScript) {
+        $vaultRoot = Split-Path $VaultBlogDir -Parent
+        Write-Host "`nRefreshing Thinking page data..." -ForegroundColor Cyan
+        & $thinkingScript -VaultPath $vaultRoot
+    }
 }
 
 Write-Host ""
