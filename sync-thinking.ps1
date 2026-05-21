@@ -189,7 +189,9 @@ function Get-NoteBreakdown {
         return @()
     }
 
-    return @(Get-ChildItem -Path $notesPath -Directory | ForEach-Object {
+    return @(Get-ChildItem -Path $notesPath -Directory |
+        Where-Object { $_.Name -ne 'Steelmen' } |
+        ForEach-Object {
         [PSCustomObject]@{
             Label = $_.Name
             Count = Get-MarkdownFileCount -Path $_.FullName -Recurse

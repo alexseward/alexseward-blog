@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T17:21:41.3119945+01:00",
+  "generatedAt": "2026-05-21T17:32:54.9954051+01:00",
   "generatedLabel": "21 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
@@ -15,8 +15,8 @@
   },
   "strongestCluster": {
     "eyebrow": "Strongest cluster",
-    "title": "AI adoption meeting organisational capability.",
-    "summary": "The organisational gap between AI experiments and repeatable value."
+    "title": "Responsible AI becoming practical governance.",
+    "summary": "Governance, literacy, and the practices that make AI usable safely."
   },
   "nodes": [
     {
@@ -25,12 +25,12 @@
       "Class": "constellation-node--core"
     },
     {
-      "Label": "Adoption layer",
+      "Label": "Responsible AI",
       "Type": "topic",
       "Class": "node-agentic"
     },
     {
-      "Label": "Responsible AI",
+      "Label": "Adoption layer",
       "Type": "topic",
       "Class": "node-second-brain"
     },
@@ -40,7 +40,7 @@
       "Class": "node-adoption"
     },
     {
-      "Label": "Data architecture",
+      "Label": "Second brain",
       "Type": "topic",
       "Class": "node-governance"
     },
@@ -67,7 +67,12 @@
   ],
   "activeThreads": [
     {
-      "Title": "AI Working Tools",
+      "Title": "AI Governance and Responsible AI",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
+      "Title": "Measuring AI ROI",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
@@ -77,14 +82,9 @@
       "Meta": "Active note"
     },
     {
-      "Title": "How to Build an MVP in the AI Coding Era",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
-    },
-    {
-      "Title": "How to Build a Self-Improving Company with AI",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "Digital Transformation in Government",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     }
   ],
   "bridges": [
@@ -112,7 +112,7 @@
       },
       {
         "Label": "Wiki notes",
-        "Count": 164,
+        "Count": 165,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 28
+        "Count": 29
       },
       {
         "Label": "Patterns",
@@ -145,10 +145,6 @@
       {
         "Label": "Personal",
         "Count": 8
-      },
-      {
-        "Label": "Steelmen",
-        "Count": 1
       }
     ]
   },
