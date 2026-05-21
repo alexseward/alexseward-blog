@@ -49,6 +49,29 @@ function ConvertTo-PublicTitle {
     return $title.Trim()
 }
 
+function Test-IsPublicIndexNote {
+    param([string]$RelativePath, [string]$Title)
+
+    if ($RelativePath -like 'Clippings\*') {
+        return $false
+    }
+
+    $indexTitles = @(
+        'Map of Content',
+        'Blog Index',
+        'Source Material Index',
+        'Steelmen Index',
+        'Intellectual Arc',
+        'Glossary'
+    )
+
+    if ($indexTitles -contains $Title) {
+        return $true
+    }
+
+    return $Title -match '\bIndex$'
+}
+
 function Get-NoteKind {
     param([string]$RelativePath)
 
@@ -194,16 +217,19 @@ $files = foreach ($root in $safeRoots) {
 
 $notes = $files |
     Sort-Object LastWriteTime -Descending |
-    Select-Object -First $MaxRecent |
     ForEach-Object {
         $relative = Get-RelativePath $VaultPath $_.FullName
-        [PSCustomObject]@{
-            Title = ConvertTo-PublicTitle $_
-            Kind = Get-NoteKind $relative
-            RelativePath = $relative
-            Updated = $_.LastWriteTime
+        $title = ConvertTo-PublicTitle $_
+        if (-not (Test-IsPublicIndexNote -RelativePath $relative -Title $title)) {
+            [PSCustomObject]@{
+                Title = $title
+                Kind = Get-NoteKind $relative
+                RelativePath = $relative
+                Updated = $_.LastWriteTime
+            }
         }
-    }
+    } |
+    Select-Object -First $MaxRecent
 
 $topicScores = @(Get-TopicScores $notes)
 $activeTopics = @($topicScores | Where-Object { $_.Score -gt 0 } | Select-Object -First 4)
@@ -226,7 +252,13 @@ for ($i = 0; $i -lt $activeTopics.Count; $i++) {
     }
 }
 
-$noteNodes = @($notes | Where-Object { $_.Kind -eq 'Thinking' } | Select-Object -First 4)
+$topicLabels = @($activeTopics | ForEach-Object { $_.Label })
+$noteNodes = @(
+    $notes |
+        Where-Object { $_.Kind -eq 'Thinking' -and $topicLabels -notcontains $_.Title } |
+        Sort-Object Title -Unique |
+        Select-Object -First 4
+)
 for ($i = 0; $i -lt $noteNodes.Count; $i++) {
     $nodes += [PSCustomObject]@{
         Label = $noteNodes[$i].Title
@@ -235,7 +267,7 @@ for ($i = 0; $i -lt $noteNodes.Count; $i++) {
     }
 }
 
-$active = @($notes | Select-Object -First 4 | ForEach-Object {
+$active = @($notes | Where-Object { $topicLabels -notcontains $_.Title } | Select-Object -First 4 | ForEach-Object {
     [PSCustomObject]@{
         Title = $_.Title
         Kind = $_.Kind
@@ -262,12 +294,9 @@ $bridges = @(
     [PSCustomObject]@{ From = 'Governance'; To = 'responsible practice' }
 )
 
-$rootClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings')
-$rawClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings\Raw')
 $processedClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings\Processed')
 $wikiNotes = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Notes') -Recurse
 $blogFiles = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Blog')
-$readingQueueItems = Get-ReadingQueueCount -VaultPath $VaultPath
 $noteBreakdown = Get-NoteBreakdown -VaultPath $VaultPath
 
 $payload = [ordered]@{
@@ -295,10 +324,8 @@ $payload = [ordered]@{
     bridges = $bridges
     dashboard = [ordered]@{
         title = 'Vault dashboard'
-        summary = 'A public-safe view of the knowledge funnel behind this page: queue, clippings, wiki notes, and writing output.'
+        summary = 'A public-safe view of the durable knowledge base behind this page: processed sources, wiki notes, and public writing.'
         funnel = @(
-            [ordered]@{ Label = 'Reading queue'; Count = $readingQueueItems; Description = 'Curated items waiting to be considered' },
-            [ordered]@{ Label = 'Clipping inbox'; Count = ($rootClippings + $rawClippings); Description = 'Unprocessed source material' },
             [ordered]@{ Label = 'Processed clippings'; Count = $processedClippings; Description = 'Sources triaged and connected' },
             [ordered]@{ Label = 'Wiki notes'; Count = $wikiNotes; Description = 'Synthesised concepts, frameworks, research, and patterns' },
             [ordered]@{ Label = 'Blog files'; Count = $blogFiles; Description = 'Public writing in the vault' }

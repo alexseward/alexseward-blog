@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T17:14:02.5634091+01:00",
+  "generatedAt": "2026-05-21T17:21:41.3119945+01:00",
   "generatedLabel": "21 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
@@ -45,7 +45,7 @@
       "Class": "node-governance"
     },
     {
-      "Label": "AI Working Tools",
+      "Label": "AI Agents in Practice",
       "Type": "note",
       "Class": "node-capability"
     },
@@ -55,12 +55,12 @@
       "Class": "node-production"
     },
     {
-      "Label": "Agentic AI",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "Sovereign AI",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-rag"
     }
@@ -77,12 +77,12 @@
       "Meta": "Active note"
     },
     {
-      "Title": "Agentic AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "How to Build an MVP in the AI Coding Era",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "How to Build an MVP in the AI Coding Era",
+      "Title": "How to Build a Self-Improving Company with AI",
       "Kind": "Reading",
       "Meta": "Recent clipping"
     }
@@ -103,18 +103,8 @@
   ],
   "dashboard": {
     "title": "Vault dashboard",
-    "summary": "A public-safe view of the knowledge funnel behind this page: queue, clippings, wiki notes, and writing output.",
+    "summary": "A public-safe view of the durable knowledge base behind this page: processed sources, wiki notes, and public writing.",
     "funnel": [
-      {
-        "Label": "Reading queue",
-        "Count": 25,
-        "Description": "Curated items waiting to be considered"
-      },
-      {
-        "Label": "Clipping inbox",
-        "Count": 0,
-        "Description": "Unprocessed source material"
-      },
       {
         "Label": "Processed clippings",
         "Count": 117,
