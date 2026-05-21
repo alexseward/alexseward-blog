@@ -125,13 +125,61 @@ function Get-TopicScores {
     return $scores | Sort-Object @{ Expression = 'Score'; Descending = $true }, @{ Expression = 'Label'; Descending = $false }
 }
 
+function Get-MarkdownFileCount {
+    param([string]$Path, [switch]$Recurse)
+
+    if (-not (Test-Path $Path)) {
+        return 0
+    }
+
+    $parameters = @{
+        Path = $Path
+        File = $true
+        Filter = '*.md'
+        ErrorAction = 'SilentlyContinue'
+    }
+
+    if ($Recurse) {
+        $parameters.Recurse = $true
+    }
+
+    return @((Get-ChildItem @parameters)).Count
+}
+
+function Get-ReadingQueueCount {
+    param([string]$VaultPath)
+
+    $queuePath = Join-Path $VaultPath 'Projects\Personal\Reading Queue.md'
+    if (-not (Test-Path $queuePath)) {
+        return 0
+    }
+
+    $text = Get-Content -Path $queuePath -Raw
+    return @([regex]::Matches($text, '(?m)^\*\*\d+\.\*\*')).Count
+}
+
+function Get-NoteBreakdown {
+    param([string]$VaultPath)
+
+    $notesPath = Join-Path $VaultPath 'Notes'
+    if (-not (Test-Path $notesPath)) {
+        return @()
+    }
+
+    return @(Get-ChildItem -Path $notesPath -Directory | ForEach-Object {
+        [PSCustomObject]@{
+            Label = $_.Name
+            Count = Get-MarkdownFileCount -Path $_.FullName -Recurse
+        }
+    } | Sort-Object @{ Expression = 'Count'; Descending = $true }, @{ Expression = 'Label'; Descending = $false })
+}
+
 $safeRoots = @(
     'Clippings',
     'Blog',
     'Notes\Concepts',
     'Notes\Patterns',
-    'Notes\Frameworks',
-    'Notes\Research'
+    'Notes\Frameworks'
 )
 
 $files = foreach ($root in $safeRoots) {
@@ -214,6 +262,14 @@ $bridges = @(
     [PSCustomObject]@{ From = 'Governance'; To = 'responsible practice' }
 )
 
+$rootClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings')
+$rawClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings\Raw')
+$processedClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings\Processed')
+$wikiNotes = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Notes') -Recurse
+$blogFiles = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Blog')
+$readingQueueItems = Get-ReadingQueueCount -VaultPath $VaultPath
+$noteBreakdown = Get-NoteBreakdown -VaultPath $VaultPath
+
 $payload = [ordered]@{
     generatedAt = (Get-Date).ToString('o')
     generatedLabel = (Get-Date).ToString('d MMMM yyyy')
@@ -237,6 +293,18 @@ $payload = [ordered]@{
     nodes = $nodes
     activeThreads = $active
     bridges = $bridges
+    dashboard = [ordered]@{
+        title = 'Vault dashboard'
+        summary = 'A public-safe view of the knowledge funnel behind this page: queue, clippings, wiki notes, and writing output.'
+        funnel = @(
+            [ordered]@{ Label = 'Reading queue'; Count = $readingQueueItems; Description = 'Curated items waiting to be considered' },
+            [ordered]@{ Label = 'Clipping inbox'; Count = ($rootClippings + $rawClippings); Description = 'Unprocessed source material' },
+            [ordered]@{ Label = 'Processed clippings'; Count = $processedClippings; Description = 'Sources triaged and connected' },
+            [ordered]@{ Label = 'Wiki notes'; Count = $wikiNotes; Description = 'Synthesised concepts, frameworks, research, and patterns' },
+            [ordered]@{ Label = 'Blog files'; Count = $blogFiles; Description = 'Public writing in the vault' }
+        )
+        breakdown = $noteBreakdown
+    }
     updateNote = 'This page is periodically refreshed from a public-safe summary of my personal knowledge base.'
 }
 

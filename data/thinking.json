@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-19T13:40:19.4157324+01:00",
-  "generatedLabel": "19 May 2026",
+  "generatedAt": "2026-05-21T17:14:02.5634091+01:00",
+  "generatedLabel": "21 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,8 +10,8 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 2,
-    "writing": 1
+    "readings": 5,
+    "writing": 2
   },
   "strongestCluster": {
     "eyebrow": "Strongest cluster",
@@ -35,49 +35,44 @@
       "Class": "node-second-brain"
     },
     {
-      "Label": "Data architecture",
+      "Label": "Agentic AI",
       "Type": "topic",
       "Class": "node-adoption"
     },
     {
-      "Label": "Second brain",
+      "Label": "Data architecture",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "The Capability Ceiling",
+      "Label": "AI Working Tools",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "Agentic AI",
+      "Label": "AI Centre of Excellence",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "Map of Content",
+      "Label": "Agentic AI",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "Prompt Engineering",
+      "Label": "Sovereign AI",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Introducing the AI Adoption Layer",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "AI Working Tools",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "Building your Second Brain",
-      "Kind": "Writing",
-      "Meta": "Writing signal"
-    },
-    {
-      "Title": "The Capability Ceiling",
+      "Title": "AI Centre of Excellence",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
@@ -85,6 +80,11 @@
       "Title": "Agentic AI",
       "Kind": "Thinking",
       "Meta": "Active note"
+    },
+    {
+      "Title": "How to Build an MVP in the AI Coding Era",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -101,5 +101,66 @@
       "To": "responsible practice"
     }
   ],
+  "dashboard": {
+    "title": "Vault dashboard",
+    "summary": "A public-safe view of the knowledge funnel behind this page: queue, clippings, wiki notes, and writing output.",
+    "funnel": [
+      {
+        "Label": "Reading queue",
+        "Count": 25,
+        "Description": "Curated items waiting to be considered"
+      },
+      {
+        "Label": "Clipping inbox",
+        "Count": 0,
+        "Description": "Unprocessed source material"
+      },
+      {
+        "Label": "Processed clippings",
+        "Count": 117,
+        "Description": "Sources triaged and connected"
+      },
+      {
+        "Label": "Wiki notes",
+        "Count": 164,
+        "Description": "Synthesised concepts, frameworks, research, and patterns"
+      },
+      {
+        "Label": "Blog files",
+        "Count": 19,
+        "Description": "Public writing in the vault"
+      }
+    ],
+    "breakdown": [
+      {
+        "Label": "Frameworks",
+        "Count": 59
+      },
+      {
+        "Label": "Concepts",
+        "Count": 36
+      },
+      {
+        "Label": "Research",
+        "Count": 28
+      },
+      {
+        "Label": "Patterns",
+        "Count": 22
+      },
+      {
+        "Label": "Case Studies",
+        "Count": 10
+      },
+      {
+        "Label": "Personal",
+        "Count": 8
+      },
+      {
+        "Label": "Steelmen",
+        "Count": 1
+      }
+    ]
+  },
   "updateNote": "This page is periodically refreshed from a public-safe summary of my personal knowledge base."
 }

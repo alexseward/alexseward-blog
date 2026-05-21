@@ -923,7 +923,8 @@ img {
 
 .thinking-hero,
 .constellation-panel,
-.thinking-card {
+.thinking-card,
+.vault-dashboard-panel {
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     background: var(--panel);
@@ -1140,6 +1141,107 @@ img {
     color: var(--accent);
 }
 
+.vault-dashboard-panel {
+    display: grid;
+    gap: 1.4rem;
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.vault-dashboard-panel__intro {
+    display: grid;
+    gap: 0.7rem;
+    max-width: 760px;
+}
+
+.vault-dashboard-panel__intro h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+.vault-dashboard-panel__intro p:not(.eyebrow) {
+    margin: 0;
+    color: var(--muted);
+}
+
+.vault-funnel {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.75rem;
+}
+
+.vault-funnel__stage,
+.vault-breakdown__item {
+    border: 1px solid var(--line);
+    border-radius: calc(var(--radius-md) - 2px);
+    background: color-mix(in srgb, var(--panel-strong) 92%, transparent);
+}
+
+.vault-funnel__stage {
+    display: grid;
+    gap: 0.45rem;
+    min-height: 168px;
+    padding: 1rem;
+}
+
+.vault-funnel__stage span,
+.vault-breakdown h3,
+.vault-breakdown__item span {
+    color: var(--muted);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.vault-funnel__stage strong {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.vault-funnel__stage p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.35;
+}
+
+.vault-breakdown {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.vault-breakdown h3 {
+    margin: 0;
+}
+
+.vault-breakdown__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.65rem;
+}
+
+.vault-breakdown__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+}
+
+.vault-breakdown__item strong {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
 @media (max-width: 900px) {
     .thinking-hero,
     .constellation-panel,
@@ -1154,16 +1256,25 @@ img {
     .constellation-map {
         min-height: 620px;
     }
+
+    .vault-funnel {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 @media (max-width: 640px) {
     .thinking-hero,
     .constellation-panel,
-    .thinking-card {
+    .thinking-card,
+    .vault-dashboard-panel {
         border-radius: 22px;
     }
 
     .thinking-list {
+        grid-template-columns: 1fr;
+    }
+
+    .vault-funnel {
         grid-template-columns: 1fr;
     }
 }
