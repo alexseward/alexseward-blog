@@ -317,7 +317,7 @@ $payload = [ordered]@{
         writing = @($notes | Where-Object { $_.Kind -eq 'Writing' }).Count
     }
     strongestCluster = [ordered]@{
-        eyebrow = 'Strongest cluster'
+        eyebrow = 'Current insight'
         title = $topTopic.ClusterTitle
         summary = $topTopic.Summary
     }

@@ -27,37 +27,16 @@
       <p class="eyebrow">{{ $thinking.strongestCluster.eyebrow }}</p>
       <h2>{{ $thinking.strongestCluster.title }}</h2>
       <p>{{ $thinking.strongestCluster.summary }}</p>
+
+      <div class="cluster-signals">
+        <h3>Emerging connections</h3>
+        <ul>
+          {{ range $thinking.bridges }}
+          <li>{{ .From }} <span>-></span> {{ .To }}</li>
+          {{ end }}
+        </ul>
+      </div>
     </aside>
-  </section>
-
-  <section class="thinking-grid">
-    <div class="thinking-card thinking-card--wide">
-      <p class="eyebrow">Active threads</p>
-      <div class="thinking-list">
-        {{ range $thinking.activeThreads }}
-        <article>
-          <span>{{ .Kind }}</span>
-          <h3>{{ .Title }}</h3>
-          <p>{{ .Meta }}</p>
-        </article>
-        {{ end }}
-      </div>
-    </div>
-
-    <div class="thinking-card">
-      <p class="eyebrow">Emerging connections</p>
-      <div class="bridge-list">
-        {{ range $thinking.bridges }}
-        <p><strong>{{ .From }}</strong> <span>-></span> {{ .To }}</p>
-        {{ end }}
-      </div>
-    </div>
-
-    <div class="thinking-card">
-      <p class="eyebrow">About this page</p>
-      <p>{{ $thinking.updateNote }}</p>
-      <a class="text-link" href="{{ `/posts/` | relURL }}">Read recent essays -></a>
-    </div>
   </section>
 
   {{ with $thinking.dashboard }}
