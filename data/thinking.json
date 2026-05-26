@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-26T11:18:27.4594080+01:00",
+  "generatedAt": "2026-05-26T11:46:41.6608786+01:00",
   "generatedLabel": "26 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
@@ -67,12 +67,12 @@
   ],
   "activeThreads": [
     {
-      "Title": "AI Centre of Excellence",
+      "Title": "AI Governance and Responsible AI",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
     {
-      "Title": "AI Governance and Responsible AI",
+      "Title": "AI Centre of Excellence",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
@@ -112,7 +112,7 @@
       },
       {
         "Label": "Wiki notes",
-        "Count": 164,
+        "Count": 165,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 27
+        "Count": 28
       },
       {
         "Label": "Patterns",
