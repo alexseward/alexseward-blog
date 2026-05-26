@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-21T17:32:54.9954051+01:00",
-  "generatedLabel": "21 May 2026",
+  "generatedAt": "2026-05-26T11:18:27.4594080+01:00",
+  "generatedLabel": "26 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -11,7 +11,7 @@
     "notesSampled": 24,
     "topics": 4,
     "readings": 5,
-    "writing": 2
+    "writing": 0
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
@@ -40,51 +40,51 @@
       "Class": "node-adoption"
     },
     {
-      "Label": "Second brain",
+      "Label": "Data architecture",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "AI Agents in Practice",
+      "Label": "AI Centre of Excellence",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "AI Centre of Excellence",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI Governance and Responsible AI",
+      "Label": "AI Literacy",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "AI Governance and Responsible AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Measuring AI ROI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
       "Title": "AI Centre of Excellence",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
     {
-      "Title": "Digital Transformation in Government",
+      "Title": "AI Governance and Responsible AI",
       "Kind": "Thinking",
       "Meta": "Active note"
+    },
+    {
+      "Title": "Open Source AI",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
+      "Title": "The World Model",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 117,
+        "Count": 119,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 165,
+        "Count": 164,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -128,11 +128,11 @@
       },
       {
         "Label": "Concepts",
-        "Count": 36
+        "Count": 37
       },
       {
         "Label": "Research",
-        "Count": 29
+        "Count": 27
       },
       {
         "Label": "Patterns",
