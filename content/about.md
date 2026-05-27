@@ -1,5 +1,5 @@
 ---
-title: "Alex Seward, the person behind 93 'til Infinity"
+title: "Behind 93 'til Infinity"
 ---
 
 93 'til Infinity is my corner of the internet for essays, observations, and the ideas I keep coming back to.
