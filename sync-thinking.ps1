@@ -200,7 +200,7 @@ function Get-NoteBreakdown {
 }
 
 $safeRoots = @(
-    'Clippings',
+    'Clippings\Processed',
     'Blog',
     'Notes\Concepts',
     'Notes\Patterns',

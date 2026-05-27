@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-26T11:46:41.6608786+01:00",
-  "generatedLabel": "26 May 2026",
+  "generatedAt": "2026-05-27T10:50:38.9385283+01:00",
+  "generatedLabel": "27 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -67,6 +67,16 @@
   ],
   "activeThreads": [
     {
+      "Title": "Microsoft Career Arc",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
+      "Title": "University Foundations",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
       "Title": "AI Governance and Responsible AI",
       "Kind": "Thinking",
       "Meta": "Active note"
@@ -75,16 +85,6 @@
       "Title": "AI Centre of Excellence",
       "Kind": "Thinking",
       "Meta": "Active note"
-    },
-    {
-      "Title": "Open Source AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "The World Model",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -112,7 +112,7 @@
       },
       {
         "Label": "Wiki notes",
-        "Count": 165,
+        "Count": 166,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -144,7 +144,7 @@
       },
       {
         "Label": "Personal",
-        "Count": 8
+        "Count": 9
       }
     ]
   },
