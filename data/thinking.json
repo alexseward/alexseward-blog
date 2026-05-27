@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-27T10:50:38.9385283+01:00",
+  "generatedAt": "2026-05-27T11:16:36.1851879+01:00",
   "generatedLabel": "27 May 2026",
   "source": "Public-safe vault summary",
   "hero": {
@@ -10,7 +10,7 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 5,
+    "readings": 8,
     "writing": 0
   },
   "strongestCluster": {
@@ -50,41 +50,41 @@
       "Class": "node-capability"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Governance and Responsible AI",
+      "Label": "AI Literacy",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI Literacy",
+      "Label": "AI Maturity Model",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Microsoft Career Arc",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "Uber's COO says it's getting harder to justify the money spent on AI tokenmaxxing",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "University Foundations",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "The AI Efficiency Metric Why Tokens per Dollar per Watt Is Reshaping the $600B Data Center Race",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "AI Governance and Responsible AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "AI Skeptic This Business Makes No Sense",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "AI Centre of Excellence",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "The Pursuit Of Purity (The Right Way To Do AI)",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 119,
+        "Count": 125,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 166,
+        "Count": 168,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 28
+        "Count": 30
       },
       {
         "Label": "Patterns",
