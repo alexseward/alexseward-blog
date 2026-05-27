@@ -1,15 +1,15 @@
 {{ define "main" }}
 <article class="article-shell">
   <header class="article-header">
-    <p class="eyebrow">{{ if eq .Section "posts" }}Essay{{ else }}Page{{ end }}</p>
+    <p class="eyebrow">{{ if eq .Section "posts" }}Essay{{ else }}About{{ end }}</p>
     <h1>{{ .Title }}</h1>
+    {{ if eq .Section "posts" }}
     <div class="article-meta">
-      {{ if eq .Section "posts" }}
       <span>{{ .Date.Format "2 January 2006" }}</span>
       <span>{{ .ReadingTime }} min read</span>
-      {{ end }}
       <span>{{ site.Params.author }}</span>
     </div>
+    {{ end }}
     {{ with .Description }}
     <p class="article-dek">{{ . }}</p>
     {{ else }}
