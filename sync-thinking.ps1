@@ -10,6 +10,7 @@
 .EXAMPLE
     .\sync-thinking.ps1
     .\sync-thinking.ps1 -VaultPath "C:\path\to\vault"
+    pwsh ./sync-thinking.ps1 -VaultPath "/Users/alex/Library/Mobile Documents/iCloud~md~obsidian/Documents/Alex"
 #>
 
 [CmdletBinding()]
@@ -22,12 +23,22 @@ param(
 $ErrorActionPreference = 'Stop'
 
 if (-not $VaultPath) {
-    $candidate = Join-Path $HOME "iCloudDrive\iCloud~md~obsidian\Alex"
-    if (Test-Path $candidate) {
-        $VaultPath = $candidate
+    $candidates = @(
+        (Join-Path $HOME 'Library/Mobile Documents/iCloud~md~obsidian/Documents/Alex'),
+        (Join-Path $HOME 'iCloudDrive/iCloud~md~obsidian/Alex'),
+        (Join-Path $HOME 'iCloudDrive/iCloud~md~obsidian/Documents/Alex')
+    )
+
+    foreach ($candidate in $candidates) {
+        if (Test-Path $candidate) {
+            $VaultPath = $candidate
+            break
+        }
     }
-    else {
-        throw "Set THINKING_VAULT_PATH or pass -VaultPath with the path to the Obsidian vault."
+
+    if (-not $VaultPath) {
+        $searched = $candidates -join ', '
+        throw "Set THINKING_VAULT_PATH or pass -VaultPath with the path to the Obsidian vault. Checked: $searched"
     }
 }
 
@@ -37,7 +48,7 @@ if (-not (Test-Path $VaultPath)) {
 
 function Get-RelativePath {
     param([string]$BasePath, [string]$FullPath)
-    return $FullPath.Substring($BasePath.TrimEnd('\').Length + 1)
+    return [System.IO.Path]::GetRelativePath($BasePath, $FullPath)
 }
 
 function ConvertTo-PublicTitle {
@@ -52,7 +63,7 @@ function ConvertTo-PublicTitle {
 function Test-IsPublicIndexNote {
     param([string]$RelativePath, [string]$Title)
 
-    if ($RelativePath -like 'Clippings\*') {
+    if ($RelativePath -like 'Clippings/*' -or $RelativePath -like 'Clippings\*') {
         return $false
     }
 
@@ -75,8 +86,8 @@ function Test-IsPublicIndexNote {
 function Get-NoteKind {
     param([string]$RelativePath)
 
-    if ($RelativePath -like 'Clippings\*') { return 'Reading' }
-    if ($RelativePath -like 'Blog\*') { return 'Writing' }
+    if ($RelativePath -like 'Clippings/*' -or $RelativePath -like 'Clippings\*') { return 'Reading' }
+    if ($RelativePath -like 'Blog/*' -or $RelativePath -like 'Blog\*') { return 'Writing' }
     return 'Thinking'
 }
 
@@ -172,7 +183,7 @@ function Get-MarkdownFileCount {
 function Get-ReadingQueueCount {
     param([string]$VaultPath)
 
-    $queuePath = Join-Path $VaultPath 'Projects\Personal\Reading Queue.md'
+    $queuePath = Join-Path $VaultPath (Join-Path 'Projects' (Join-Path 'Personal' 'Reading Queue.md'))
     if (-not (Test-Path $queuePath)) {
         return 0
     }
@@ -202,9 +213,9 @@ function Get-NoteBreakdown {
 $safeRoots = @(
     'Clippings\Processed',
     'Blog',
-    'Notes\Concepts',
-    'Notes\Patterns',
-    'Notes\Frameworks'
+    (Join-Path 'Notes' 'Concepts'),
+    (Join-Path 'Notes' 'Patterns'),
+    (Join-Path 'Notes' 'Frameworks')
 )
 
 $files = foreach ($root in $safeRoots) {
@@ -212,7 +223,7 @@ $files = foreach ($root in $safeRoots) {
     if (Test-Path $path) {
         Get-ChildItem -Path $path -Recurse -File -Filter '*.md' -ErrorAction SilentlyContinue |
             Where-Object {
-                $_.FullName -notmatch '\\(\.trash|Templates|Artifacts|copilot|\.agents)\\'
+                ($_.FullName -replace [regex]::Escape([System.IO.Path]::DirectorySeparatorChar), '/') -notmatch '/(\.trash|Templates|Artifacts|copilot|\.agents)/'
             }
     }
 }
@@ -296,7 +307,7 @@ $bridges = @(
     [PSCustomObject]@{ From = 'Governance'; To = 'responsible practice' }
 )
 
-$processedClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Clippings\Processed')
+$processedClippings = Get-MarkdownFileCount -Path (Join-Path $VaultPath (Join-Path 'Clippings' 'Processed'))
 $wikiNotes = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Notes') -Recurse
 $blogFiles = Get-MarkdownFileCount -Path (Join-Path $VaultPath 'Blog')
 $noteBreakdown = Get-NoteBreakdown -VaultPath $VaultPath
