@@ -1,0 +1,61 @@
+{{- $giscus := site.Params.comments.giscus -}}
+{{- if and $giscus.enabled $giscus.repo $giscus.repoId $giscus.category $giscus.categoryId -}}
+<section class="comments-section" aria-labelledby="comments-title">
+  <div class="comments-section__header">
+    <p class="eyebrow">Comments</p>
+    <h2 id="comments-title">Join the conversation</h2>
+  </div>
+  <div class="comments-section__frame">
+    <script src="https://giscus.app/client.js"
+            data-repo="{{ $giscus.repo }}"
+            data-repo-id="{{ $giscus.repoId }}"
+            data-category="{{ $giscus.category }}"
+            data-category-id="{{ $giscus.categoryId }}"
+            data-mapping="{{ $giscus.mapping | default `pathname` }}"
+            data-strict="{{ $giscus.strict | default `1` }}"
+            data-reactions-enabled="{{ $giscus.reactionsEnabled | default `1` }}"
+            data-emit-metadata="{{ $giscus.emitMetadata | default `0` }}"
+            data-input-position="{{ $giscus.inputPosition | default `bottom` }}"
+            data-theme="{{ $giscus.theme | default `preferred_color_scheme` }}"
+            data-lang="{{ $giscus.lang | default `en` }}"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+  <script>
+    (function () {
+      var root = document.documentElement;
+
+      function giscusTheme() {
+        if (root.dataset.theme === "dark") return "dark";
+        if (root.dataset.theme === "light") return "light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      function updateGiscusTheme() {
+        var frame = document.querySelector("iframe.giscus-frame");
+        if (!frame) return;
+
+        frame.contentWindow.postMessage({
+          giscus: {
+            setConfig: {
+              theme: giscusTheme()
+            }
+          }
+        }, "https://giscus.app");
+      }
+
+      new MutationObserver(updateGiscusTheme).observe(root, {
+        attributes: true,
+        attributeFilter: ["data-theme"]
+      });
+      window.addEventListener("message", function (event) {
+        if (event.origin === "https://giscus.app" && event.data && event.data.giscus) {
+          updateGiscusTheme();
+        }
+      });
+    }());
+  </script>
+</section>
+{{- end -}}

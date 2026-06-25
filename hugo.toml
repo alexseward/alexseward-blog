@@ -17,6 +17,21 @@ enableRobotsTXT = true
     headline = 'Essays & observations on technology, culture, music, sport and the internet.'
     intro = 'Written by Alex Seward in Bristol.'
 
+  [params.comments]
+    [params.comments.giscus]
+      enabled = true
+      repo = 'alexseward/alexseward-blog'
+      repoId = 'R_kgDOSJsBHg'
+      category = 'General'
+      categoryId = 'DIC_kwDOSJsBHs4C_4Kc'
+      mapping = 'pathname'
+      strict = '1'
+      reactionsEnabled = '1'
+      emitMetadata = '0'
+      inputPosition = 'bottom'
+      theme = 'preferred_color_scheme'
+      lang = 'en'
+
   [[params.socialLinks]]
     name = 'GitHub'
     url = 'https://github.com/alexseward'
