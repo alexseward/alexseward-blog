@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-22T13:11:22.578Z",
-  "generatedLabel": "22 June 2026",
+  "generatedAt": "2026-06-30T13:55:44.556Z",
+  "generatedLabel": "30 June 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,13 +10,13 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 13,
+    "readings": 9,
     "writing": 1
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
-    "title": "AI systems becoming working practice.",
-    "summary": "Agentic AI, tools, prompt engineering, and new working patterns."
+    "title": "Responsible AI becoming practical governance.",
+    "summary": "Governance, literacy, and the practices that make AI usable safely."
   },
   "nodes": [
     {
@@ -25,12 +25,12 @@
       "Class": "constellation-node--core"
     },
     {
-      "Label": "Agentic AI",
+      "Label": "Responsible AI",
       "Type": "topic",
       "Class": "node-agentic"
     },
     {
-      "Label": "Responsible AI",
+      "Label": "Agentic AI",
       "Type": "topic",
       "Class": "node-second-brain"
     },
@@ -50,39 +50,39 @@
       "Class": "node-capability"
     },
     {
-      "Label": "AI Centre of Excellence",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI for Business Value",
+      "Label": "AI Literacy",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Measuring AI ROI",
+      "Title": "Building Tiny Tools with Codex",
+      "Kind": "Writing",
+      "Meta": "Writing signal"
+    },
+    {
+      "Title": "Inside Consultants’ Messy Shift From Hourly Billing",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
+    },
+    {
+      "Title": "The Adoption-Impact Paradox",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
     {
-      "Title": "Coaching Performance Metrics",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Sovereign AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Responsible AI in Practice",
+      "Title": "Pilot-to-production gap",
       "Kind": "Thinking",
       "Meta": "Active note"
     }
@@ -107,17 +107,17 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 143,
+        "Count": 145,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 172,
+        "Count": 173,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
         "Label": "Blog files",
-        "Count": 19,
+        "Count": 20,
         "Description": "Public writing in the vault"
       }
     ],
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 31
+        "Count": 32
       },
       {
         "Label": "Patterns",
