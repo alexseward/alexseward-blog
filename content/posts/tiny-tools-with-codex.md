@@ -1,8 +1,10 @@
 ---
-title: 'Building Tiny Tools with Codex'
+title: 'Tiny Tools with Codex'
 date: 2026-06-30
 author: 'Alex Seward'
 summary: 'How I used Codex to build two one-user tools: a meal planner around local food deliveries and a safe Raspberry Pi and Plex workflow for a 55,000-track music library.'
+aliases:
+  - /posts/building-tiny-tools-with-codex/
 sectionLabel: 'Technology'
 tags:
   - ai
