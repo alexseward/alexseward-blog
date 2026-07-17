@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-30T13:55:44.556Z",
-  "generatedLabel": "30 June 2026",
+  "generatedAt": "2026-07-17T13:46:15.753Z",
+  "generatedLabel": "17 July 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,8 +10,8 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 9,
-    "writing": 1
+    "readings": 10,
+    "writing": 3
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
@@ -67,24 +67,24 @@
   ],
   "activeThreads": [
     {
-      "Title": "Building Tiny Tools with Codex",
+      "Title": "Thank You for Your Unpaid Labour",
       "Kind": "Writing",
       "Meta": "Writing signal"
     },
     {
-      "Title": "Inside Consultants’ Messy Shift From Hourly Billing",
+      "Title": "Go for the Content",
+      "Kind": "Writing",
+      "Meta": "Writing signal"
+    },
+    {
+      "Title": "How ‘Evangelion’ opened my eyes to my depression",
       "Kind": "Reading",
       "Meta": "Recent clipping"
     },
     {
-      "Title": "The Adoption-Impact Paradox",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Pilot-to-production gap",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "Gigawattonomics",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -107,24 +107,24 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 145,
+        "Count": 151,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 173,
+        "Count": 175,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
         "Label": "Blog files",
-        "Count": 20,
+        "Count": 21,
         "Description": "Public writing in the vault"
       }
     ],
     "breakdown": [
       {
         "Label": "Frameworks",
-        "Count": 60
+        "Count": 61
       },
       {
         "Label": "Concepts",
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 32
+        "Count": 33
       },
       {
         "Label": "Patterns",
