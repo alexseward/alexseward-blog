@@ -98,6 +98,34 @@ function noteKind(relativePath) {
   return 'Thinking';
 }
 
+function frontmatterDates(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!match) return {};
+
+  const dates = {};
+  for (const field of ['updated', 'created', 'published']) {
+    const fieldMatch = match[1].match(new RegExp(`^${field}:\\s*["']?([^"'\\s]+)["']?\\s*$`, 'm'));
+    if (!fieldMatch) continue;
+
+    const parsed = new Date(fieldMatch[1]);
+    if (!Number.isNaN(parsed.getTime())) dates[field] = parsed;
+  }
+
+  return dates;
+}
+
+function semanticDate(filePath, kind) {
+  const dates = frontmatterDates(filePath);
+  const priority = kind === 'Reading'
+    ? ['created', 'updated', 'published']
+    : kind === 'Writing'
+      ? ['published', 'updated', 'created']
+      : ['updated', 'created', 'published'];
+
+  return priority.map((field) => dates[field]).find(Boolean) || new Date(0);
+}
+
 function topicDefinitions() {
   return [
     {
@@ -166,7 +194,7 @@ function noteBreakdown() {
 }
 
 const safeRoots = [
-  'Clippings',
+  path.join('Clippings', 'Processed'),
   'Blog',
   path.join('Notes', 'Concepts'),
   path.join('Notes', 'Patterns'),
@@ -175,20 +203,24 @@ const safeRoots = [
 
 const files = safeRoots.flatMap((root) => walkMarkdownFiles(path.join(vaultPath, root)));
 const notes = files
-  .sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)
   .map((filePath) => {
     const relativePath = path.relative(vaultPath, filePath);
     const title = publicTitle(filePath);
     if (isPublicIndexNote(relativePath, title)) return null;
 
+    const kind = noteKind(relativePath);
+    const updated = semanticDate(filePath, kind);
+
     return {
       Title: title,
-      Kind: noteKind(relativePath),
+      Kind: kind,
       RelativePath: relativePath.split(path.sep).join('/'),
-      Updated: fs.statSync(filePath).mtime,
+      Updated: updated,
+      SortTime: updated.getTime(),
     };
   })
   .filter(Boolean)
+  .sort((a, b) => b.SortTime - a.SortTime || a.RelativePath.localeCompare(b.RelativePath))
   .slice(0, maxRecent);
 
 const scores = topicScores(notes);

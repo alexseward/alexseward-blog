@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-17T13:46:15.753Z",
-  "generatedLabel": "17 July 2026",
+  "generatedAt": "2026-07-20T18:45:20.577Z",
+  "generatedLabel": "20 July 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,7 +10,7 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 10,
+    "readings": 7,
     "writing": 3
   },
   "strongestCluster": {
@@ -45,7 +45,7 @@
       "Class": "node-governance"
     },
     {
-      "Label": "AI Agents in Practice",
+      "Label": "Agentic AI Framework",
       "Type": "note",
       "Class": "node-capability"
     },
@@ -67,12 +67,12 @@
   ],
   "activeThreads": [
     {
-      "Title": "Thank You for Your Unpaid Labour",
+      "Title": "Go for the Content",
       "Kind": "Writing",
       "Meta": "Writing signal"
     },
     {
-      "Title": "Go for the Content",
+      "Title": "Thank You for Your Unpaid Labour",
       "Kind": "Writing",
       "Meta": "Writing signal"
     },
@@ -82,9 +82,9 @@
       "Meta": "Recent clipping"
     },
     {
-      "Title": "Gigawattonomics",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "AI Literacy",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     }
   ],
   "bridges": [
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 151,
+        "Count": 158,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 175,
+        "Count": 176,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -124,7 +124,7 @@
     "breakdown": [
       {
         "Label": "Frameworks",
-        "Count": 61
+        "Count": 62
       },
       {
         "Label": "Concepts",
