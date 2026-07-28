@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-20T18:45:20.577Z",
-  "generatedLabel": "20 July 2026",
+  "generatedAt": "2026-07-28T08:47:33.053Z",
+  "generatedLabel": "28 July 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,8 +10,8 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 7,
-    "writing": 3
+    "readings": 3,
+    "writing": 0
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
@@ -35,54 +35,54 @@
       "Class": "node-second-brain"
     },
     {
-      "Label": "Adoption layer",
+      "Label": "Second brain",
       "Type": "topic",
       "Class": "node-adoption"
     },
     {
-      "Label": "Data architecture",
+      "Label": "Adoption layer",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "Agentic AI Framework",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Governance and Responsible AI",
+      "Label": "AI Working Tools",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI Literacy",
+      "Label": "AI-Enabled Public",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Go for the Content",
-      "Kind": "Writing",
-      "Meta": "Writing signal"
+      "Title": "AI Working Tools",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "Thank You for Your Unpaid Labour",
-      "Kind": "Writing",
-      "Meta": "Writing signal"
+      "Title": "How to Learn a New AI Tool",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "How ‘Evangelion’ opened my eyes to my depression",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "Measuring AI ROI",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "AI Literacy",
+      "Title": "Open Source AI",
       "Kind": "Thinking",
       "Meta": "Active note"
     }
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 158,
+        "Count": 168,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 176,
+        "Count": 194,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -124,15 +124,15 @@
     "breakdown": [
       {
         "Label": "Frameworks",
-        "Count": 62
+        "Count": 61
       },
       {
         "Label": "Concepts",
-        "Count": 38
+        "Count": 55
       },
       {
         "Label": "Research",
-        "Count": 33
+        "Count": 35
       },
       {
         "Label": "Patterns",
