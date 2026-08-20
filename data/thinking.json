@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-02T15:02:54.772Z",
-  "generatedLabel": "2 August 2026",
+  "generatedAt": "2026-08-20T09:23:22.132Z",
+  "generatedLabel": "20 August 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,13 +10,13 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 2,
-    "writing": 1
+    "readings": 15,
+    "writing": 0
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
-    "title": "Responsible AI becoming practical governance.",
-    "summary": "Governance, literacy, and the practices that make AI usable safely."
+    "title": "AI systems becoming working practice.",
+    "summary": "Agentic AI, tools, prompt engineering, and new working patterns."
   },
   "nodes": [
     {
@@ -25,17 +25,17 @@
       "Class": "constellation-node--core"
     },
     {
-      "Label": "Responsible AI",
+      "Label": "Agentic AI",
       "Type": "topic",
       "Class": "node-agentic"
     },
     {
-      "Label": "Agentic AI",
+      "Label": "Responsible AI",
       "Type": "topic",
       "Class": "node-second-brain"
     },
     {
-      "Label": "Second brain",
+      "Label": "Adoption layer",
       "Type": "topic",
       "Class": "node-adoption"
     },
@@ -45,46 +45,46 @@
       "Class": "node-governance"
     },
     {
-      "Label": "AI Agents in Practice",
+      "Label": "Agentic AI Framework",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "AI Centre of Excellence",
+      "Label": "AI Literacy",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Governance and Responsible AI",
+      "Label": "Future of Work and AI",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI Literacy",
+      "Label": "Human-AI Interaction Design",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "The problem with parity of esteem",
+      "Title": "Agents' summary of business conditions — July 2026",
       "Kind": "Reading",
       "Meta": "Recent clipping"
     },
     {
-      "Title": "AI Literacy",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "AISI Frontier AI Trends Report 2025",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "AI Working Tools",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "Apprenticeship funding rules August 2026 to July 2027 – Version 3",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     },
     {
-      "Title": "Change Management for AI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
+      "Title": "Changes to apprenticeship assessment 2025 to 2026",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
     }
   ],
   "bridges": [
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 170,
+        "Count": 187,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 196,
+        "Count": 197,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 35
+        "Count": 36
       },
       {
         "Label": "Patterns",
