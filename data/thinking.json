@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-28T08:47:33.053Z",
-  "generatedLabel": "28 July 2026",
+  "generatedAt": "2026-08-02T15:02:54.772Z",
+  "generatedLabel": "2 August 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,8 +10,8 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 3,
-    "writing": 0
+    "readings": 2,
+    "writing": 1
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
@@ -40,49 +40,49 @@
       "Class": "node-adoption"
     },
     {
-      "Label": "Adoption layer",
+      "Label": "Data architecture",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Agents in Practice",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "AI Governance and Responsible AI",
+      "Label": "AI Centre of Excellence",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "AI Working Tools",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "AI-Enabled Public",
+      "Label": "AI Literacy",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
+      "Title": "The problem with parity of esteem",
+      "Kind": "Reading",
+      "Meta": "Recent clipping"
+    },
+    {
+      "Title": "AI Literacy",
+      "Kind": "Thinking",
+      "Meta": "Active note"
+    },
+    {
       "Title": "AI Working Tools",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
     {
-      "Title": "How to Learn a New AI Tool",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Measuring AI ROI",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Open Source AI",
+      "Title": "Change Management for AI",
       "Kind": "Thinking",
       "Meta": "Active note"
     }
@@ -107,12 +107,12 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 168,
+        "Count": 170,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 194,
+        "Count": 196,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
@@ -124,7 +124,7 @@
     "breakdown": [
       {
         "Label": "Frameworks",
-        "Count": 61
+        "Count": 62
       },
       {
         "Label": "Concepts",
@@ -136,7 +136,7 @@
       },
       {
         "Label": "Patterns",
-        "Count": 22
+        "Count": 23
       },
       {
         "Label": "Case Studies",
