@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-20T09:23:22.132Z",
-  "generatedLabel": "20 August 2026",
+  "generatedAt": "2026-09-07T17:25:11.131Z",
+  "generatedLabel": "7 September 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -11,7 +11,7 @@
     "notesSampled": 24,
     "topics": 4,
     "readings": 15,
-    "writing": 0
+    "writing": 1
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
@@ -30,22 +30,22 @@
       "Class": "node-agentic"
     },
     {
-      "Label": "Responsible AI",
+      "Label": "Adoption layer",
       "Type": "topic",
       "Class": "node-second-brain"
     },
     {
-      "Label": "Adoption layer",
+      "Label": "Data architecture",
       "Type": "topic",
       "Class": "node-adoption"
     },
     {
-      "Label": "Data architecture",
+      "Label": "Responsible AI",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "Agentic AI Framework",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-capability"
     },
@@ -55,36 +55,36 @@
       "Class": "node-production"
     },
     {
-      "Label": "Future of Work and AI",
+      "Label": "Coaching Performance Metrics",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "Human-AI Interaction Design",
+      "Label": "Derived Artefacts Inherit Source Errors",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Agents' summary of business conditions — July 2026",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "Clip Farming the Real World",
+      "Kind": "Writing",
+      "Meta": "Writing signal"
     },
     {
-      "Title": "AISI Frontier AI Trends Report 2025",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "AI Coach Playbook",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "Apprenticeship funding rules August 2026 to July 2027 – Version 3",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "Coaching Performance Metrics",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     },
     {
-      "Title": "Changes to apprenticeship assessment 2025 to 2026",
-      "Kind": "Reading",
-      "Meta": "Recent clipping"
+      "Title": "Derived Artefacts Inherit Source Errors",
+      "Kind": "Thinking",
+      "Meta": "Active note"
     }
   ],
   "bridges": [
@@ -117,7 +117,7 @@
       },
       {
         "Label": "Blog files",
-        "Count": 21,
+        "Count": 22,
         "Description": "Public writing in the vault"
       }
     ],
