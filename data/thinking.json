@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-07T17:25:11.131Z",
-  "generatedLabel": "7 September 2026",
+  "generatedAt": "2026-10-06T20:50:55.995Z",
+  "generatedLabel": "6 October 2026",
   "source": "Public-safe vault summary",
   "hero": {
     "eyebrow": "Thinking now",
@@ -10,13 +10,13 @@
   "stats": {
     "notesSampled": 24,
     "topics": 4,
-    "readings": 15,
-    "writing": 1
+    "readings": 4,
+    "writing": 3
   },
   "strongestCluster": {
     "eyebrow": "Current insight",
-    "title": "AI systems becoming working practice.",
-    "summary": "Agentic AI, tools, prompt engineering, and new working patterns."
+    "title": "Responsible AI becoming practical governance.",
+    "summary": "Governance, literacy, and the practices that make AI usable safely."
   },
   "nodes": [
     {
@@ -25,12 +25,12 @@
       "Class": "constellation-node--core"
     },
     {
-      "Label": "Agentic AI",
+      "Label": "Responsible AI",
       "Type": "topic",
       "Class": "node-agentic"
     },
     {
-      "Label": "Adoption layer",
+      "Label": "Second brain",
       "Type": "topic",
       "Class": "node-second-brain"
     },
@@ -40,49 +40,49 @@
       "Class": "node-adoption"
     },
     {
-      "Label": "Responsible AI",
+      "Label": "Adoption layer",
       "Type": "topic",
       "Class": "node-governance"
     },
     {
-      "Label": "AI Coach Playbook",
+      "Label": "AI Centre of Excellence",
       "Type": "note",
       "Class": "node-capability"
     },
     {
-      "Label": "AI Literacy",
+      "Label": "AI Coach Playbook",
       "Type": "note",
       "Class": "node-production"
     },
     {
-      "Label": "Coaching Performance Metrics",
+      "Label": "AI Evaluation and Benchmarking",
       "Type": "note",
       "Class": "node-literacy"
     },
     {
-      "Label": "Derived Artefacts Inherit Source Errors",
+      "Label": "AI Governance and Responsible AI",
       "Type": "note",
       "Class": "node-rag"
     }
   ],
   "activeThreads": [
     {
-      "Title": "Clip Farming the Real World",
+      "Title": "Second Brain, Revisited",
       "Kind": "Writing",
       "Meta": "Writing signal"
     },
     {
-      "Title": "AI Coach Playbook",
+      "Title": "The Social Network Without Society",
+      "Kind": "Writing",
+      "Meta": "Writing signal"
+    },
+    {
+      "Title": "AI Readiness Assessment",
       "Kind": "Thinking",
       "Meta": "Active note"
     },
     {
-      "Title": "Coaching Performance Metrics",
-      "Kind": "Thinking",
-      "Meta": "Active note"
-    },
-    {
-      "Title": "Derived Artefacts Inherit Source Errors",
+      "Title": "Desirability vs Feasibility vs Viability",
       "Kind": "Thinking",
       "Meta": "Active note"
     }
@@ -107,17 +107,17 @@
     "funnel": [
       {
         "Label": "Processed clippings",
-        "Count": 187,
+        "Count": 192,
         "Description": "Sources triaged and connected"
       },
       {
         "Label": "Wiki notes",
-        "Count": 197,
+        "Count": 198,
         "Description": "Synthesised concepts, frameworks, research, and patterns"
       },
       {
         "Label": "Blog files",
-        "Count": 22,
+        "Count": 23,
         "Description": "Public writing in the vault"
       }
     ],
@@ -132,7 +132,7 @@
       },
       {
         "Label": "Research",
-        "Count": 36
+        "Count": 37
       },
       {
         "Label": "Patterns",
