@@ -13,7 +13,7 @@
   {{- end -}}
   {{- if gt (len $related) 0 -}}
   <section class="related-posts">
-    <p class="eyebrow">Related reading</p>
+    <h2 class="eyebrow">Related reading</h2>
     <div class="story-grid story-grid--related">
       {{- range first 3 ($related.ByDate.Reverse) }}
       {{ partial "post-card.html" (dict "page" . "compact" true) }}

@@ -1,21 +1,21 @@
 {{ define "main" }}
 <article class="article-shell">
   <header class="article-header">
-    <p class="eyebrow">{{ if eq .Section "posts" }}Essay{{ else }}About{{ end }}</p>
+    <p class="eyebrow">{{ if eq .Section "posts" }}{{ .Params.sectionLabel | default "Essay" }}{{ else }}About{{ end }}</p>
     <h1>{{ .Title }}</h1>
-    {{ if eq .Section "posts" }}
-    <div class="article-meta">
-      <span>{{ .Date.Format "2 January 2006" }}</span>
-      <span>{{ .ReadingTime }} min read</span>
-      <span>{{ site.Params.author }}</span>
-    </div>
-    {{ end }}
     {{ with .Description }}
     <p class="article-dek">{{ . }}</p>
     {{ else }}
       {{ with .Params.summary }}
       <p class="article-dek">{{ . }}</p>
       {{ end }}
+    {{ end }}
+    {{ if eq .Section "posts" }}
+    <div class="article-meta">
+      <span>{{ site.Params.author }}</span>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      <span>{{ .ReadingTime }} min read</span>
+    </div>
     {{ end }}
   </header>
 

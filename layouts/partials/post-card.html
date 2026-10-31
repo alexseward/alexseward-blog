@@ -1,26 +1,37 @@
 {{- $page := .page -}}
 {{- $compact := .compact | default false -}}
-<article class="story-card{{ if $compact }} story-card--compact{{ end }}">
+{{- $featured := .featured | default false -}}
+<article class="story-card{{ if $compact }} story-card--compact{{ end }}{{ if $featured }} story-card--featured{{ end }}">
+  {{ if not $featured }}
   {{ with $page.Params.sectionLabel }}
   <p class="story-card__section">{{ . }}</p>
   {{ end }}
+  {{ end }}
+  {{ if $compact }}
   <h3 class="story-card__title">
     <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
   </h3>
+  {{ else }}
+  <h2 class="story-card__title">
+    <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+  </h2>
+  {{ end }}
+  <div class="story-card__meta">
+    {{ if not $page.Date.IsZero }}<time datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2 January 2006" }}</time>{{ end }}
+    <span>{{ $page.ReadingTime }} min read</span>
+  </div>
   {{ with $page.Params.summary }}
   <p class="story-card__summary">{{ . }}</p>
   {{ else }}
   <p class="story-card__summary">{{ $page.Summary | plainify | truncate 180 }}</p>
   {{ end }}
-  <div class="story-card__meta">
-    {{ if not $page.Date.IsZero }}<span>{{ $page.Date.Format "2 January 2006" }}</span>{{ end }}
-    <span>{{ $page.ReadingTime }} min read</span>
-  </div>
+  {{ if not $featured }}
   {{ with $page.Params.tags }}
   <div class="story-card__tags">
     {{ range first 4 . }}
-    <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}"><span>{{ . }}</span></a>
+    <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}">{{ . }}</a>
     {{ end }}
   </div>
+  {{ end }}
   {{ end }}
 </article>

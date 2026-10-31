@@ -1,7 +1,6 @@
 {{ define "main" }}
 {{ $posts := where site.RegularPages "Section" "posts" }}
 {{ $orderedPosts := $posts.ByDate.Reverse }}
-{{ $latestPost := index $orderedPosts 0 }}
 {{ $recentPosts := after 1 (first 5 $orderedPosts) }}
 {{ $sections := slice
   (dict "title" "Technology" "tag" "technology" "description" "AI, systems, data, and the ways tools reshape thought.")
@@ -11,49 +10,48 @@
 }}
 
 <div class="home-shell">
-  <section class="hero-panel hero-panel--quiet">
-    <div class="hero-panel__grid">
-      <div class="hero-panel__copy">
-        <p class="eyebrow">{{ site.Params.home.eyebrow }}</p>
-        <h1>{{ site.Params.home.headline }}</h1>
-        <p>{{ site.Params.home.intro }}</p>
-        {{ with site.Params.home.note }}<p>{{ . }}</p>{{ end }}
-        {{ with $latestPost }}
-        <a class="text-link" href="{{ .RelPermalink }}">Latest essay -></a>
-        {{ end }}
-      </div>
-      <div class="hero-panel__visual" aria-hidden="true"></div>
+  <section class="home-intro" aria-labelledby="home-title">
+    <div class="home-intro__copy">
+      <h1 id="home-title">{{ site.Params.home.headline }}</h1>
+      <p>{{ site.Params.home.intro }}</p>
+      {{ with site.Params.home.note }}<p>{{ . }}</p>{{ end }}
     </div>
+    <img class="home-intro__visual" src="{{ "images/infinity.png" | relURL }}" alt="" width="1024" height="1024" fetchpriority="high">
   </section>
 
-  <div class="home-strip">
-    {{ with $latestPost }}
-    <section class="latest-card">
-      <p class="eyebrow">Latest essay</p>
-      {{ partial "post-card.html" (dict "page" . "compact" true) }}
-    </section>
-    {{ end }}
+  {{ range first 1 $orderedPosts }}
+  <section class="latest-essay" aria-labelledby="latest-label">
+    <p class="eyebrow" id="latest-label">Latest essay</p>
+    {{ partial "post-card.html" (dict "page" . "featured" true) }}
+    <div class="signature-rule" aria-hidden="true"><span>∞</span></div>
+  </section>
+  {{ end }}
 
-    <section class="notes-card">
-      <p class="eyebrow">From the notebook</p>
-      <div class="notes-list">
-        {{ range $recentPosts }}
-        <a href="{{ .RelPermalink }}">
-          <span>{{ .Title }}</span>
-          <small>{{ .Date.Format "Jan 2" }}</small>
-        </a>
-        {{ end }}
-      </div>
-    </section>
-  </div>
+  {{ with $recentPosts }}
+  <section class="recent-essays" aria-labelledby="recent-label">
+    <h2 class="eyebrow" id="recent-label">Recent essays</h2>
+    <div class="notes-list">
+      {{ range . }}
+      <a href="{{ .RelPermalink }}">
+        <span>{{ .Title }}</span>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      </a>
+      {{ end }}
+    </div>
+    <a class="text-link" href="{{ "posts/" | relURL }}">All essays <span aria-hidden="true">→</span></a>
+  </section>
+  {{ end }}
 
-  <section class="topic-strip" aria-label="Recurring topics">
-    {{ range $sections }}
-    <a href="{{ printf "/tags/%s/" .tag | relURL }}">
-      <span>{{ .title }}</span>
-      <p>{{ .description }}</p>
-    </a>
-    {{ end }}
+  <section class="home-topics" aria-labelledby="topics-label">
+    <h2 class="eyebrow" id="topics-label">Explore by topic</h2>
+    <div class="topic-strip">
+      {{ range $sections }}
+      <a href="{{ printf "/tags/%s/" .tag | relURL }}">
+        <span>{{ .title }}</span>
+        <p>{{ .description }}</p>
+      </a>
+      {{ end }}
+    </div>
   </section>
 </div>
 {{ end }}

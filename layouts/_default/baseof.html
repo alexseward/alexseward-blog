@@ -35,6 +35,7 @@
   <meta name="twitter:description" content="{{ $description }}">
 </head>
 <body class="{{ if .IsHome }}page-home{{ else if eq .Kind `section` }}page-list{{ else if eq .Kind `term` }}page-list{{ else if eq .Kind `taxonomy` }}page-terms{{ else }}page-single{{ end }}">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="page-frame">
     <header class="site-header">
       <div class="site-header__inner">
@@ -45,8 +46,9 @@
           <nav class="site-nav" aria-label="Main navigation">
             <ul>
               {{ range site.Menus.main }}
+              {{ $isCurrent := or (eq $.RelPermalink .URL) ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) (and (eq .Identifier "posts") (eq $.Section "posts")) (and (eq .Identifier "tags") (in (slice "term" "taxonomy") $.Kind)) }}
               <li>
-                <a href="{{ .URL }}"{{ if or ($.IsMenuCurrent `main` .) ($.HasMenuCurrent `main` .) }} class="is-active"{{ end }}>{{ .Name }}</a>
+                <a href="{{ .URL }}"{{ if $isCurrent }} class="is-active" aria-current="{{ if eq $.RelPermalink .URL }}page{{ else }}true{{ end }}"{{ end }}>{{ .Name }}</a>
               </li>
               {{ end }}
             </ul>
@@ -59,7 +61,7 @@
       </div>
     </header>
 
-    <main class="site-main">
+    <main class="site-main" id="main-content" tabindex="-1">
       {{ if and .IsPage (eq .Section "posts") }}
       <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
       {{ end }}
@@ -70,10 +72,10 @@
       <p>93 'til Infinity is written by {{ site.Params.author }}.</p>
       <nav class="footer-links" aria-label="Elsewhere">
         {{ range site.Params.socialLinks }}
-        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} -></a>
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .name }} <span aria-hidden="true">↗</span></a>
         {{ end }}
         {{ with site.Home.OutputFormats.Get "RSS" }}
-        <a href="{{ .RelPermalink }}">RSS -></a>
+        <a href="{{ .RelPermalink }}">RSS <span aria-hidden="true">→</span></a>
         {{ end }}
       </nav>
     </footer>
